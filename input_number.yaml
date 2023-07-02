@@ -1,0 +1,136 @@
+
+  wlanthermo_channel_1_min:
+    name: Kanal 1 Min
+    min: 0
+    max: 300
+    step: 1
+    unit_of_measurement: °C
+    icon: mdi:thermometer-low
+    mode: box
+  wlanthermo_channel_1_max:
+    name: Kanal 1 Max
+    min: 0
+    max: 300
+    step: 1
+    unit_of_measurement: °C
+    icon: mdi:thermometer-high
+    mode: box
+    
+  wlanthermo_channel_2_min:
+    name: Kanal 2 Min
+    min: 0
+    max: 300
+    step: 1
+    unit_of_measurement: °C
+    icon: mdi:thermometer-low
+    mode: box
+  wlanthermo_channel_2_max:
+    name: Kanal 2 Max
+    min: 0
+    max: 300
+    step: 1
+    unit_of_measurement: °C
+    icon: mdi:thermometer-high
+    mode: box
+
+  wlanthermo_channel_3_min:
+    name: Kanal 3 Min
+    min: 0
+    max: 300
+    step: 1
+    unit_of_measurement: °C
+    icon: mdi:thermometer-low
+    mode: box
+  wlanthermo_channel_3_max:
+    name: Kanal 3 Max
+    min: 0
+    max: 300
+    step: 1
+    unit_of_measurement: °C
+    icon: mdi:thermometer-high
+    mode: box
+    
+  wlanthermo_channel_4_min:
+    name: Kanal 4 Min
+    min: 0
+    max: 300
+    step: 1
+    unit_of_measurement: °C
+    icon: mdi:thermometer-low
+    mode: box
+  wlanthermo_channel_4_max:
+    name: Kanal 4 Max
+    min: 0
+    max: 300
+    step: 1
+    unit_of_measurement: °C
+    icon: mdi:thermometer-high
+    mode: box
+
+  wlanthermo_channel_5_min:
+    name: Kanal 5 Min
+    min: 0
+    max: 300
+    step: 1
+    unit_of_measurement: °C
+    icon: mdi:thermometer-low
+    mode: box
+  wlanthermo_channel_5_max:
+    name: Kanal 5 Max
+    min: 0
+    max: 300
+    step: 1
+    unit_of_measurement: °C
+    icon: mdi:thermometer-high
+    mode: box
+
+  wlanthermo_channel_6_min:
+    name: Kanal 6 Min
+    min: 0
+    max: 300
+    step: 1
+    unit_of_measurement: °C
+    icon: mdi:thermometer-low
+    mode: box
+  wlanthermo_channel_6_max:
+    name: Kanal 6 Max
+    min: 0
+    max: 300
+    step: 1
+    unit_of_measurement: °C
+    icon: mdi:thermometer-high
+    mode: box
+
+  wlanthermo_channel_7_min:
+    name: Kanal 7 Min
+    min: 0
+    max: 300
+    step: 1
+    unit_of_measurement: °C
+    icon: mdi:thermometer-low
+    mode: box
+  wlanthermo_channel_7_max:
+    name: Kanal 7 Max
+    min: 0
+    max: 300
+    step: 1
+    unit_of_measurement: °C
+    icon: mdi:thermometer-high
+    mode: box
+
+  wlanthermo_channel_8_min:
+    name: Kanal 8 Min
+    min: 0
+    max: 300
+    step: 1
+    unit_of_measurement: °C
+    icon: mdi:thermometer-low
+    mode: box
+  wlanthermo_channel_8_max:
+    name: Kanal 8 Max
+    min: 0
+    max: 300
+    step: 1
+    unit_of_measurement: °C
+    icon: mdi:thermometer-high
+    mode: box

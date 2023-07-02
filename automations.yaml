@@ -1,0 +1,829 @@
+- id: '1565774399160_1'
+  alias: WLANThermo update channel 1 from MQTT
+  mode: restart
+  trigger:
+    - platform: state
+      entity_id: sensor.wlanthermo_channel_1_all
+      attribute: name
+    - platform: state
+      entity_id: sensor.bbq_thermo
+      from: unknown
+  condition:
+    - condition: not
+      conditions:
+        - condition: state
+          entity_id: sensor.wlanthermo_channel_1_all
+          state: unavailable
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.wlanthermo_channel_1_min
+        value: '{{ state_attr(''sensor.wlanthermo_channel_1_all'', ''min'') }}'
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.wlanthermo_channel_1_max
+        value: '{{ state_attr(''sensor.wlanthermo_channel_1_all'', ''max'') }}'
+    - service: input_text.set_value
+      data_template:
+        entity_id: input_text.wlanthermo_channel_1_name
+        value: '{{ state_attr(''sensor.wlanthermo_channel_1_all'', ''name'') }}'
+  
+- id: '1565774399160_2'
+  alias: WLANThermo update channel 2 from MQTT
+  mode: restart
+  trigger:
+    - platform: state
+      entity_id: sensor.wlanthermo_channel_2_all
+      attribute: name
+    - platform: state
+      entity_id: sensor.bbq_thermo
+      from: unknown
+  condition:
+    - condition: not
+      conditions:
+        - condition: state
+          entity_id: sensor.wlanthermo_channel_2_all
+          state: unavailable
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.wlanthermo_channel_2_min
+        value: '{{ state_attr(''sensor.wlanthermo_channel_2_all'', ''min'') }}'
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.wlanthermo_channel_2_max
+        value: '{{ state_attr(''sensor.wlanthermo_channel_2_all'', ''max'') }}'
+    - service: input_text.set_value
+      data_template:
+        entity_id: input_text.wlanthermo_channel_2_name
+        value: '{{ state_attr(''sensor.wlanthermo_channel_2_all'', ''name'') }}'
+  
+- id: '1565774399160_3'
+  alias: WLANThermo update channel 3 name from MQTT
+  mode: restart
+  trigger:
+    - platform: state
+      entity_id: sensor.wlanthermo_channel_3_all
+      attribute: name
+    - platform: state
+      entity_id: sensor.bbq_thermo
+      from: unknown
+  condition:
+    - condition: not
+      conditions:
+        - condition: state
+          entity_id: sensor.wlanthermo_channel_3_all
+          state: unavailable
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.wlanthermo_channel_3_min
+        value: '{{ state_attr(''sensor.wlanthermo_channel_3_all'', ''min'') }}'
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.wlanthermo_channel_3_max
+        value: '{{ state_attr(''sensor.wlanthermo_channel_3_all'', ''max'') }}'
+    - service: input_text.set_value
+      data_template:
+        entity_id: input_text.wlanthermo_channel_3_name
+        value: '{{ state_attr(''sensor.wlanthermo_channel_3_all'', ''name'') }}'
+  
+- id: '1565774399160_4'
+  alias: WLANThermo update channel 4 from MQTT
+  mode: restart
+  trigger:
+    - platform: state
+      entity_id: sensor.wlanthermo_channel_4_all
+      attribute: name
+    - platform: state
+      entity_id: sensor.bbq_thermo
+      from: unknown
+  condition:
+    - condition: not
+      conditions:
+        - condition: state
+          entity_id: sensor.wlanthermo_channel_4_all
+          state: unavailable
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.wlanthermo_channel_4_min
+        value: '{{ state_attr(''sensor.wlanthermo_channel_4_all'', ''min'') }}'
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.wlanthermo_channel_4_max
+        value: '{{ state_attr(''sensor.wlanthermo_channel_4_all'', ''max'') }}'
+    - service: input_text.set_value
+      data_template:
+        entity_id: input_text.wlanthermo_channel_4_name
+        value: '{{ state_attr(''sensor.wlanthermo_channel_4_all'', ''name'') }}'
+  
+- id: '1565774399160_5'
+  alias: WLANThermo update channel 5 from MQTT
+  mode: restart
+  trigger:
+    - platform: state
+      entity_id: sensor.wlanthermo_channel_5_all
+      attribute: name
+    - platform: state
+      entity_id: sensor.bbq_thermo
+      from: unknown
+  condition:
+    - condition: not
+      conditions:
+        - condition: state
+          entity_id: sensor.wlanthermo_channel_5_all
+          state: unavailable
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.wlanthermo_channel_5_min
+        value: '{{ state_attr(''sensor.wlanthermo_channel_5_all'', ''min'') }}'
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.wlanthermo_channel_5_max
+        value: '{{ state_attr(''sensor.wlanthermo_channel_5_all'', ''max'') }}'
+    - service: input_text.set_value
+      data_template:
+        entity_id: input_text.wlanthermo_channel_5_name
+        value: '{{ state_attr(''sensor.wlanthermo_channel_5_all'', ''name'') }}'
+  
+- id: '1565774399160_6'
+  alias: WLANThermo update channel 6 from MQTT
+  mode: restart
+  trigger:
+    - platform: state
+      entity_id: sensor.wlanthermo_channel_6_all
+      attribute: name
+    - platform: state
+      entity_id: sensor.bbq_thermo
+      from: unknown
+  condition:
+    - condition: not
+      conditions:
+        - condition: state
+          entity_id: sensor.wlanthermo_channel_6_all
+          state: unavailable
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.wlanthermo_channel_6_min
+        value: '{{ state_attr(''sensor.wlanthermo_channel_6_all'', ''min'') }}'
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.wlanthermo_channel_6_max
+        value: '{{ state_attr(''sensor.wlanthermo_channel_6_all'', ''max'') }}'
+    - service: input_text.set_value
+      data_template:
+        entity_id: input_text.wlanthermo_channel_6_name
+        value: '{{ state_attr(''sensor.wlanthermo_channel_6_all'', ''name'') }}'
+        
+- id: '1565774399160_7'
+  alias: WLANThermo update channel 7 from MQTT
+  mode: restart
+  trigger:
+    - platform: state
+      entity_id: sensor.wlanthermo_channel_7_all
+      attribute: name
+    - platform: state
+      entity_id: sensor.bbq_thermo
+      from: unknown
+  condition:
+    - condition: not
+      conditions:
+        - condition: state
+          entity_id: sensor.wlanthermo_channel_7_all
+          state: unavailable
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.wlanthermo_channel_7_min
+        value: '{{ state_attr(''sensor.wlanthermo_channel_7_all'', ''min'') }}'
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.wlanthermo_channel_7_max
+        value: '{{ state_attr(''sensor.wlanthermo_channel_7_all'', ''max'') }}'
+    - service: input_text.set_value
+      data_template:
+        entity_id: input_text.wlanthermo_channel_7_name
+        value: '{{ state_attr(''sensor.wlanthermo_channel_7_all'', ''name'') }}'
+        
+- id: '1565774399160_8'
+  alias: WLANThermo update channel 8 from MQTT
+  mode: restart
+  trigger:
+    - platform: state
+      entity_id: sensor.wlanthermo_channel_8_all
+      attribute: name
+    - platform: state
+      entity_id: sensor.bbq_thermo
+      from: unknown
+  condition:
+    - condition: not
+      conditions:
+        - condition: state
+          entity_id: sensor.wlanthermo_channel_8_all
+          state: unavailable
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.wlanthermo_channel_8_min
+        value: '{{ state_attr(''sensor.wlanthermo_channel_8_all'', ''min'') }}'
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.wlanthermo_channel_8_max
+        value: '{{ state_attr(''sensor.wlanthermo_channel_8_all'', ''max'') }}'
+    - service: input_text.set_value
+      data_template:
+        entity_id: input_text.wlanthermo_channel_8_name
+        value: '{{ state_attr(''sensor.wlanthermo_channel_8_all'', ''name'') }}'
+  
+- id: '1565774399160_1min'
+  alias: WLANThermo set channel 1 min
+  mode: queued
+  trigger:
+  - entity_id: input_number.wlanthermo_channel_1_min
+    platform: state
+  condition: []
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: WLanThermo/MINIV3/set/channels
+      retain: true
+      payload: '{{ ''{"number":1,"min":"''+states(''input_number.wlanthermo_channel_1_min'')+''"}''
+       }}'
+- id: '1565774399160_1max'
+  alias: WLANThermo set channel 1 max
+  mode: queued
+  trigger:
+  - entity_id: input_number.wlanthermo_channel_1_max
+    platform: state
+  condition: []
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: WLanThermo/MINIV3/set/channels
+      retain: true
+      payload: '{{ ''{"number":1,"max":"''+states(''input_number.wlanthermo_channel_1_max'')+''"}''
+       }}'
+  
+
+- id: '1565774399160_2min'
+  alias: WLANThermo set channel 2 min
+  mode: queued
+  trigger:
+  - entity_id: input_number.wlanthermo_channel_2_min
+    platform: state
+  condition: []
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: WLanThermo/MINIV3/set/channels
+      retain: true
+      payload: '{{ ''{"number":2,"min":"''+states(''input_number.wlanthermo_channel_2_min'')+''"}''
+       }}'
+- id: '1565774399160_2max'
+  alias: WLANThermo set channel 2 max
+  mode: queued
+  trigger:
+  - entity_id: input_number.wlanthermo_channel_2_max
+    platform: state
+  condition: []
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: WLanThermo/MINIV3/set/channels
+      retain: true
+      payload: '{{ ''{"number":2,"max":"''+states(''input_number.wlanthermo_channel_2_max'')+''"}''
+       }}'
+  
+
+- id: '1565774399160_3min'
+  alias: WLANThermo set channel 3 min
+  mode: queued
+  trigger:
+  - entity_id: input_number.wlanthermo_channel_3_min
+    platform: state
+  condition: []
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: WLanThermo/MINIV3/set/channels
+      retain: true
+      payload: '{{ ''{"number":3,"min":"''+states(''input_number.wlanthermo_channel_3_min'')+''"}''
+       }}'
+- id: '1565774399160_3max'
+  alias: WLANThermo set channel 3 max
+  mode: queued
+  trigger:
+  - entity_id: input_number.wlanthermo_channel_3_max
+    platform: state
+  condition: []
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: WLanThermo/MINIV3/set/channels
+      retain: true
+      payload: '{{ ''{"number":3,"max":"''+states(''input_number.wlanthermo_channel_3_max'')+''"}''
+       }}'
+  
+
+- id: '1565774399160_4min'
+  alias: WLANThermo set channel 4 min
+  mode: queued
+  trigger:
+  - entity_id: input_number.wlanthermo_channel_4_min
+    platform: state
+  condition: []
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: WLanThermo/MINIV3/set/channels
+      retain: true
+      payload: '{{ ''{"number":4,"min":"''+states(''input_number.wlanthermo_channel_4_min'')+''"}''
+       }}'
+- id: '1565774399160_4max'
+  alias: WLANThermo set channel 4 max
+  mode: queued
+  trigger:
+  - entity_id: input_number.wlanthermo_channel_4_max
+    platform: state
+  condition: []
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: WLanThermo/MINIV3/set/channels
+      retain: true
+      payload: '{{ ''{"number":4,"max":"''+states(''input_number.wlanthermo_channel_4_max'')+''"}''
+       }}'
+  
+
+- id: '1565774399160_5min'
+  alias: WLANThermo set channel 5 min
+  mode: queued
+  trigger:
+  - entity_id: input_number.wlanthermo_channel_5_min
+    platform: state
+  condition: []
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: WLanThermo/MINIV3/set/channels
+      retain: true
+      payload: '{{ ''{"number":5,"min":"''+states(''input_number.wlanthermo_channel_5_min'')+''"}''
+       }}'
+- id: '1565774399160_5max'
+  alias: WLANThermo set channel 5 max
+  mode: queued
+  trigger:
+  - entity_id: input_number.wlanthermo_channel_5_max
+    platform: state
+  condition: []
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: WLanThermo/MINIV3/set/channels
+      retain: true
+      payload: '{{ ''{"number":5,"max":"''+states(''input_number.wlanthermo_channel_5_max'')+''"}''
+       }}'
+  
+
+- id: '1565774399160_6min'
+  alias: WLANThermo set channel 6 min
+  mode: queued
+  trigger:
+  - entity_id: input_number.wlanthermo_channel_6_min
+    platform: state
+  condition: []
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: WLanThermo/MINIV3/set/channels
+      retain: true
+      payload: '{{ ''{"number":6,"min":"''+states(''input_number.wlanthermo_channel_6_min'')+''"}''
+       }}'
+- id: '1565774399160_6max'
+  alias: WLANThermo set channel 6 max
+  mode: queued
+  trigger:
+  - entity_id: input_number.wlanthermo_channel_6_max
+    platform: state
+  condition: []
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: WLanThermo/MINIV3/set/channels
+      retain: true
+      payload: '{{ ''{"number":6,"max":"''+states(''input_number.wlanthermo_channel_6_max'')+''"}''
+       }}'
+  
+
+- id: '1565774399160_7min'
+  alias: WLANThermo set channel 7 min
+  mode: queued
+  trigger:
+  - entity_id: input_number.wlanthermo_channel_7_min
+    platform: state
+  condition: []
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: WLanThermo/MINIV3/set/channels
+      retain: true
+      payload: '{{ ''{"number":7,"min":"''+states(''input_number.wlanthermo_channel_7_min'')+''"}''
+       }}'
+- id: '1565774399160_7max'
+  alias: WLANThermo set channel 7 max
+  mode: queued
+  trigger:
+  - entity_id: input_number.wlanthermo_channel_7_max
+    platform: state
+  condition: []
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: WLanThermo/MINIV3/set/channels
+      retain: true
+      payload: '{{ ''{"number":7,"max":"''+states(''input_number.wlanthermo_channel_7_max'')+''"}''
+       }}'
+  
+
+- id: '1565774399160_8min'
+  alias: WLANThermo set channel 8 min
+  mode: queued
+  trigger:
+  - entity_id: input_number.wlanthermo_channel_8_min
+    platform: state
+  condition: []
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: WLanThermo/MINIV3/set/channels
+      retain: true
+      payload: '{{ ''{"number":8,"min":"''+states(''input_number.wlanthermo_channel_8_min'')+''"}''
+       }}'
+- id: '1565774399160_8max'
+  alias: WLANThermo set channel 8 max
+  mode: queued
+  trigger:
+  - entity_id: input_number.wlanthermo_channel_8_max
+    platform: state
+  condition: []
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: WLanThermo/MINIV3/set/channels
+      retain: true
+      payload: '{{ ''{"number":8,"max":"''+states(''input_number.wlanthermo_channel_8_max'')+''"}''
+       }}'
+  
+- id: '1565774399160_1s'
+  alias: WLANThermo set channel 1 name
+  mode: queued
+  trigger:
+  - entity_id: input_text.wlanthermo_channel_1_name
+    platform: state
+  condition: []
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: WLanThermo/MINIV3/set/channels
+      retain: true
+      payload: '{{ ''{"number":1,"name":"''+states(''input_text.wlanthermo_channel_1_name'')+''"}''
+       }}'
+  
+- id: '1565774399160_2s'
+  alias: WLANThermo set channel 2 name
+  mode: queued
+  trigger:
+  - entity_id: input_text.wlanthermo_channel_2_name
+    platform: state
+  condition: []
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: WLanThermo/MINIV3/set/channels
+      retain: true
+      payload: '{{ ''{"number":2,"name":"''+states(''input_text.wlanthermo_channel_2_name'')+''"}''
+        }}'
+  
+- id: '1565774399160_3s'
+  alias: WLANThermo set channel 3 name
+  mode: queued
+  trigger:
+  - entity_id: input_text.wlanthermo_channel_3_name
+    platform: state
+  condition: []
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: WLanThermo/MINIV3/set/channels
+      retain: true
+      payload: '{{ ''{"number":3,"name":"''+states(''input_text.wlanthermo_channel_3_name'')+''"}''
+        }}'
+  
+- id: '1565774399160_4s'
+  alias: WLANThermo set channel 4 name
+  mode: queued
+  trigger:
+  - entity_id: input_text.wlanthermo_channel_4_name
+    platform: state
+  condition: []
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: WLanThermo/MINIV3/set/channels
+      retain: true
+      payload: '{{ ''{"number":4,"name":"''+states(''input_text.wlanthermo_channel_4_name'')+''"}''
+        }}'
+  
+- id: '1565774399160_5s'
+  alias: WLANThermo set channel 5 name
+  mode: queued
+  trigger:
+  - entity_id: input_text.wlanthermo_channel_5_name
+    platform: state
+  condition: []
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: WLanThermo/MINIV3/set/channels
+      retain: true
+      payload: '{{ ''{"number":5,"name":"''+states(''input_text.wlanthermo_channel_5_name'')+''"}''
+        }}'
+  
+- id: '1565774399160_6s'
+  alias: WLANThermo set channel 6 name
+  mode: queued
+  trigger:
+  - entity_id: input_text.wlanthermo_channel_6_name
+    platform: state
+  condition: []
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: WLanThermo/MINIV3/set/channels
+      retain: true
+      payload: '{{ ''{"number":6,"name":"''+states(''input_text.wlanthermo_channel_6_name'')+''"}''
+        }}'
+  
+- id: '1565774399160_7s'
+  alias: WLANThermo set channel 7 name
+  mode: queued
+  trigger:
+  - entity_id: input_text.wlanthermo_channel_7_name
+    platform: state
+  condition: []
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: WLanThermo/MINIV3/set/channels
+      retain: true
+      payload: '{{ ''{"number":7,"name":"''+states(''input_text.wlanthermo_channel_7_name'')+''"}''
+        }}'
+  
+- id: '1565774399160_8s'
+  alias: WLANThermo set channel 8 name
+  mode: queued
+  trigger:
+  - entity_id: input_text.wlanthermo_channel_8_name
+    platform: state
+  condition: []
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: WLanThermo/MINIV3/set/channels
+      retain: true
+      payload: '{{ ''{"number":8,"name":"''+states(''input_text.wlanthermo_channel_8_name'')+''"}''
+        }}'
+  
+- id: '1565774399161_1s'
+  alias: WLANThermo set pitmaster 1
+  mode: queued
+  trigger:
+  - platform: state
+    entity_id: input_number.wlanthermo_pitmaster_1_temp
+  condition: []
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: WLanThermo/MINIV3/set/pitmaster
+      retain: true
+      payload: '{{ ''[{"id":0,"channel":''~(state_attr(''select.wlanthermo_pitmaster_1_channel'',''options'').index(states(''select.wlanthermo_pitmaster_channel''))+1)+'',"pid":''~state_attr(''select.wlanthermo_pitmaster_profile'',''options'').index(states(''select.wlanthermo_pitmaster_profile''))+'',"value":''~states(''number.wlanthermo_pitmaster_value'')+'',"set":''+states(''input_number.wlanthermo_pitmaster_temp'')+'',"typ":''+states(''select.wlanthermo_pitmaster_mode'')+''}]''}}'
+  
+- id: '1565774399161_2s'
+  alias: WLANThermo set pitmaster 2
+  mode: queued
+  trigger:
+  - platform: state
+    entity_id: input_number.wlanthermo_pitmaster_2_temp
+  condition: []
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: WLanThermo/MINIV3/set/pitmaster
+      retain: true
+      payload: '{{ ''[{"id":1,"channel":''~(state_attr(''select.wlanthermo_pitmaster_2_channel'',''options'').index(states(''select.wlanthermo_pitmaster_channel''))+1)+'',"pid":''~state_attr(''select.wlanthermo_pitmaster_profile'',''options'').index(states(''select.wlanthermo_pitmaster_profile''))+'',"value":''~states(''number.wlanthermo_pitmaster_value'')+'',"set":''+states(''input_number.wlanthermo_pitmaster_temp'')+'',"typ":''+states(''select.wlanthermo_pitmaster_mode'')+''}]''}}'
+  
+- id: '1565867288687_wt_avail'
+  alias: WLANThermo Became Available
+  description: ''
+  mode: queued
+  trigger:
+    - platform: state
+      entity_id: sensor.bbq_thermo
+      from: unavailable
+  condition: []
+  action:
+    - service: input_datetime.set_datetime
+      data:
+        timestamp: "{{ now().timestamp() }}"
+      target:
+        entity_id: input_datetime.wlanthermo_became_available
+
+- id: '1643554744561_1_timer'
+  alias: WLANThermo Channel 1 Timer
+  mode: single
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.wlanthermo_channel_1_timeleft
+    below: '10'
+    for:
+      minutes: 1
+  condition:
+    - condition: state
+      entity_id: input_boolean.wlanthermo_channel_1_timeleft
+      state: 'on'
+  action:
+    - service: notify.mobile_app_sm_g970f
+      data:
+        message: >-
+          {{ "Zieltemperatur von Sensor '" +
+          state_attr('sensor.wlanthermo_channel_1_all', 'name') + "'
+          bald erreicht (" + states('sensor.wlanthermo_channel_1_all') + " °C)" }}
+- alias: Toggle to Kanal 1
+  trigger:
+    - platform: state
+      entity_id: input_boolean.wlanthermo_channel_1_panel_show
+      to: "on"
+  condition: []
+  action:
+  - service: input_boolean.turn_off
+    target:
+      entity_id:
+        - input_boolean.wlanthermo_channel_2_panel_show
+        - input_boolean.wlanthermo_channel_3_panel_show
+        - input_boolean.wlanthermo_channel_4_panel_show
+        - input_boolean.wlanthermo_channel_5_panel_show
+        - input_boolean.wlanthermo_channel_6_panel_show
+        - input_boolean.wlanthermo_channel_7_panel_show
+        - input_boolean.wlanthermo_channel_8_panel_show
+        - input_boolean.wlanthermo_pitmaster_2_panel_show
+- alias: Toggle to Kanal 2
+  trigger:
+    - platform: state
+      entity_id: input_boolean.wlanthermo_channel_2_panel_show
+      to: "on"
+  condition: []
+  action:
+  - service: input_boolean.turn_off
+    target:
+      entity_id:
+        - input_boolean.wlanthermo_channel_1_panel_show
+        - input_boolean.wlanthermo_channel_3_panel_show
+        - input_boolean.wlanthermo_channel_4_panel_show
+        - input_boolean.wlanthermo_channel_5_panel_show
+        - input_boolean.wlanthermo_channel_6_panel_show
+        - input_boolean.wlanthermo_channel_7_panel_show
+        - input_boolean.wlanthermo_channel_8_panel_show
+        - input_boolean.wlanthermo_pitmaster_2_panel_show
+- alias: Toggle to Kanal 3
+  trigger:
+    - platform: state
+      entity_id: input_boolean.wlanthermo_channel_3_panel_show
+      to: "on"
+  condition: []
+  action:
+  - service: input_boolean.turn_off
+    target:
+      entity_id:
+        - input_boolean.wlanthermo_channel_1_panel_show
+        - input_boolean.wlanthermo_channel_2_panel_show
+        - input_boolean.wlanthermo_channel_4_panel_show
+        - input_boolean.wlanthermo_channel_5_panel_show
+        - input_boolean.wlanthermo_channel_6_panel_show
+        - input_boolean.wlanthermo_channel_7_panel_show
+        - input_boolean.wlanthermo_channel_8_panel_show
+        - input_boolean.wlanthermo_pitmaster_2_panel_show
+- alias: Toggle to Kanal 4
+  trigger:
+    - platform: state
+      entity_id: input_boolean.wlanthermo_channel_4_panel_show
+      to: "on"
+  condition: []
+  action:
+  - service: input_boolean.turn_off
+    target:
+      entity_id:
+        - input_boolean.wlanthermo_channel_1_panel_show
+        - input_boolean.wlanthermo_channel_2_panel_show
+        - input_boolean.wlanthermo_channel_3_panel_show
+        - input_boolean.wlanthermo_channel_5_panel_show
+        - input_boolean.wlanthermo_channel_6_panel_show
+        - input_boolean.wlanthermo_channel_7_panel_show
+        - input_boolean.wlanthermo_channel_8_panel_show
+        - input_boolean.wlanthermo_pitmaster_2_panel_show
+- alias: Toggle to Kanal 5
+  trigger:
+    - platform: state
+      entity_id: input_boolean.wlanthermo_channel_5_panel_show
+      to: "on"
+  condition: []
+  action:
+  - service: input_boolean.turn_off
+    target:
+      entity_id:
+        - input_boolean.wlanthermo_channel_1_panel_show
+        - input_boolean.wlanthermo_channel_2_panel_show
+        - input_boolean.wlanthermo_channel_3_panel_show
+        - input_boolean.wlanthermo_channel_4_panel_show
+        - input_boolean.wlanthermo_channel_6_panel_show
+        - input_boolean.wlanthermo_channel_7_panel_show
+        - input_boolean.wlanthermo_channel_8_panel_show
+        - input_boolean.wlanthermo_pitmaster_2_panel_show
+- alias: Toggle to Kanal 6
+  trigger:
+    - platform: state
+      entity_id: input_boolean.wlanthermo_channel_6_panel_show
+      to: "on"
+  condition: []
+  action:
+  - service: input_boolean.turn_off
+    target:
+      entity_id:
+        - input_boolean.wlanthermo_channel_1_panel_show
+        - input_boolean.wlanthermo_channel_2_panel_show
+        - input_boolean.wlanthermo_channel_3_panel_show
+        - input_boolean.wlanthermo_channel_4_panel_show
+        - input_boolean.wlanthermo_channel_5_panel_show
+        - input_boolean.wlanthermo_channel_7_panel_show
+        - input_boolean.wlanthermo_channel_8_panel_show
+        - input_boolean.wlanthermo_pitmaster_2_panel_show
+- alias: Toggle to Kanal 7
+  trigger:
+    - platform: state
+      entity_id: input_boolean.wlanthermo_channel_7_panel_show
+      to: "on"
+  condition: []
+  action:
+  - service: input_boolean.turn_off
+    target:
+      entity_id:
+        - input_boolean.wlanthermo_channel_1_panel_show
+        - input_boolean.wlanthermo_channel_2_panel_show
+        - input_boolean.wlanthermo_channel_3_panel_show
+        - input_boolean.wlanthermo_channel_4_panel_show
+        - input_boolean.wlanthermo_channel_5_panel_show
+        - input_boolean.wlanthermo_channel_6_panel_show
+        - input_boolean.wlanthermo_channel_8_panel_show
+        - input_boolean.wlanthermo_pitmaster_2_panel_show
+- alias: Toggle to Kanal 8
+  trigger:
+    - platform: state
+      entity_id: input_boolean.wlanthermo_channel_8_panel_show
+      to: "on"
+  condition: []
+  action:
+  - service: input_boolean.turn_off
+    target:
+      entity_id:
+        - input_boolean.wlanthermo_channel_1_panel_show
+        - input_boolean.wlanthermo_channel_2_panel_show
+        - input_boolean.wlanthermo_channel_3_panel_show
+        - input_boolean.wlanthermo_channel_4_panel_show
+        - input_boolean.wlanthermo_channel_5_panel_show
+        - input_boolean.wlanthermo_channel_6_panel_show
+        - input_boolean.wlanthermo_channel_7_panel_show
+        - input_boolean.wlanthermo_pitmaster_2_panel_show
+- alias: Toggle to Pitmaster 2
+  trigger:
+    - platform: state
+      entity_id: input_boolean.wlanthermo_pitmaster_2_panel_show
+      to: "on"
+  condition: []
+  action:
+  - service: input_boolean.turn_off
+    target:
+      entity_id:
+        - input_boolean.wlanthermo_channel_1_panel_show
+        - input_boolean.wlanthermo_channel_2_panel_show
+        - input_boolean.wlanthermo_channel_3_panel_show
+        - input_boolean.wlanthermo_channel_4_panel_show
+        - input_boolean.wlanthermo_channel_5_panel_show
+        - input_boolean.wlanthermo_channel_6_panel_show
+        - input_boolean.wlanthermo_channel_7_panel_show
+        - input_boolean.wlanthermo_channel_8_panel_show
+  
+  
+  
+  

@@ -1,0 +1,5 @@
+wlanthermo_became_available:
+  name: WLANThermo Became Available
+  has_date: true
+  has_time: true
+  icon: mdi:clock
