@@ -189,7 +189,7 @@
             0
             {% endif %}
         state: >
-          {% if not is_state('sensor.bbq_thermo', 'unavailable') and (not is_state('sensor.bbq_thermo', 'unknown')) %}
+          {% if not is_state('sensor.bbq_thermo', 'unavailable') and (not is_state('sensor.bbq_thermo', 'unknown')) and (state_attr('sensor.bbq_thermo', 'channel')[0]['temp'] < 500) %}
           {{ state_attr('sensor.bbq_thermo', 'channel')[0]['temp'] }}
           {% else %}
           0
@@ -263,7 +263,7 @@
             0
             {% endif %}
         state: >
-          {% if not is_state('sensor.bbq_thermo', 'unavailable') and (not is_state('sensor.bbq_thermo', 'unknown')) %}
+          {% if not is_state('sensor.bbq_thermo', 'unavailable') and (not is_state('sensor.bbq_thermo', 'unknown')) and (state_attr('sensor.bbq_thermo', 'channel')[1]['temp'] < 500) %}
           {{ state_attr('sensor.bbq_thermo', 'channel')[1]['temp'] }}
           {% else %}
           0
@@ -988,6 +988,18 @@
         max: 100
         step: 1
         icon: mdi:fan
+
+  - number:
+      - name: wlanthermo_soc
+        device_class: battery
+        availability: >
+          {{ not is_state('sensor.bbq_thermo', 'unavailable') and not is_state('sensor.bbq_thermo', 'unknown') }}
+        state: >-
+          {% if not is_state('sensor.bbq_thermo', 'unavailable') and (not is_state('sensor.bbq_thermo', 'unknown')) %}
+          {{ state_attr('sensor.bbq_thermo', 'system').soc }}
+          {% else %}
+          0
+          {% endif %}
 
   - sensor:
       - name: wlanthermo_pitmaster_1_temp
