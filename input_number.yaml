@@ -134,3 +134,8 @@
     unit_of_measurement: °C
     icon: mdi:thermometer-high
     mode: box
+  
+  wlanthermo_soc:
+    name: wlanthermo_soc
+    min: 0
+    max: 100
