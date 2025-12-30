@@ -137,17 +137,22 @@ views:
                   - entity: sensor.wlanthermo_channel_8_all
                     state_not: unavailable
                 type: conditional
-              - type: custom:button-card
-                entity: sensor.wlanthermo_pitmaster_2_temp
-                show_name: true
-                name: PitMaster 2
-                show_icon: false
-                show_state: true
-                tap_action:
-                  action: call-service
-                  service: input_boolean.turn_on
-                  service_data:
-                    entity_id: input_boolean.wlanthermo_pitmaster_2_panel_show
+              - card:
+                  type: custom:button-card
+                  entity: sensor.wlanthermo_channel_9_all
+                  show_name: true
+                  name: Kanal 9
+                  show_icon: false
+                  show_state: true
+                  tap_action:
+                    action: call-service
+                    service: input_boolean.turn_on
+                    service_data:
+                      entity_id: input_boolean.wlanthermo_channel_9_panel_show
+                conditions:
+                  - entity: sensor.wlanthermo_channel_9_all
+                    state_not: unavailable
+                type: conditional
           - type: custom:layout-card
             layout_type: grid
             layout:
@@ -174,6 +179,8 @@ views:
                     name: Channel 7 Timer
                   - entity: sensor.wlanthermo_channel_8_timeleft
                     name: Channel 8 Timer
+                  - entity: sensor.wlanthermo_channel_9_timeleft
+                    name: Channel 9 Timer
               - card:
                   type: custom:vertical-stack-in-card
                   cards:
@@ -423,45 +430,26 @@ views:
               - card:
                   type: custom:vertical-stack-in-card
                   cards:
-                    - type: entity
-                      entity: sensor.pitmaster_2_all
-                      name: Pitmaster 2
-                    - type: entities
-                      entities:
-                        - entity: select.wlanthermo_pitmaster_2_mode
-                          name: Modus
-                    - card:
-                        type: entities
+                    - entity: sensor.wlanthermo_channel_9_all
+                      type: entity
+                    - entities:
+                        - entity: input_text.wlanthermo_channel_9_name
+                          name: Name
+                        - entity: input_number.wlanthermo_channel_9_min
+                          name: Minimum
+                        - entity: input_number.wlanthermo_channel_9_max
+                          name: Maxmimum
+                      type: entities
+                      header:
+                        type: buttons
                         entities:
-                          - entity: select.wlanthermo_pitmaster_2_profile
-                            name: Profil
-                      conditions:
-                        - entity: select.wlanthermo_pitmaster_2_mode
-                          state_not: 'off'
-                      type: conditional
-                    - card:
-                        type: entities
-                        entities:
-                          - entity: select.wlanthermo_pitmaster_2_channel
-                            name: Kanal
-                          - entity: number.pit_2_soll_temp_2
-                      conditions:
-                        - entity: select.wlanthermo_pitmaster_2_mode
-                          state: auto
-                      type: conditional
-                    - card:
-                        type: entities
-                        entities:
-                          - entity: number.wlanthermo_pitmaster_2_value
-                            name: Drehzahl
-                      conditions:
-                        - entity: select.wlanthermo_pitmaster_2_mode
-                          state: manual
-                      type: conditional
+                          - switch.wlanthermo_channel_9_push
+                          - switch.wlanthermo_channel_9_alert
+                          - input_boolean.wlanthermo_channel_9_timeleft
                 conditions:
-                  - entity: sensor.pitmaster_2_all
+                  - entity: sensor.wlanthermo_channel_9_all
                     state_not: unavailable
-                  - entity: input_boolean.wlanthermo_pitmaster_2_panel_show
+                  - entity: input_boolean.wlanthermo_channel_9_panel_show
                     state: 'on'
                 type: conditional
               - type: custom:config-template-card
@@ -474,10 +462,9 @@ views:
                   - sensor.wlanthermo_channel_6_color
                   - sensor.wlanthermo_channel_7_color
                   - sensor.wlanthermo_channel_8_color
+                  - sensor.wlanthermo_channel_9_color
                   - sensor.wlanthermo_pitmaster_1_value_color
                   - sensor.wlanthermo_pitmaster_1_set_color
-                  - sensor.wlanthermo_pitmaster_2_value_color
-                  - sensor.wlanthermo_pitmaster_2_set_color
                   - sensor.wlanthermo_online_since
                 card:
                   type: custom:apexcharts-card
@@ -499,18 +486,6 @@ views:
                       curve: stepline
                       color: >-
                         ${states['sensor.wlanthermo_pitmaster_1_value_color'].state}
-                    - entity: sensor.pitmaster_2_all
-                      name: Pit %
-                      statistics:
-                        type: max
-                        period: 5minute
-                      yaxis_id: '1'
-                      stroke_width: 1
-                      type: area
-                      opacity: 0.25
-                      curve: stepline
-                      color: >-
-                        ${states['sensor.wlanthermo_pitmaster_2_value_color'].state}
                     - entity: sensor.wlanthermo_channel_1_all
                       name: Kanal 1
                       statistics:
@@ -575,19 +550,20 @@ views:
                       yaxis_id: '0'
                       stroke_width: 3
                       color: ${states['sensor.wlanthermo_channel_8_color'].state}
+                    - entity: sensor.wlanthermo_channel_9_all
+                      name: Kanal 9
+                      statistics:
+                        type: max
+                        period: 5minute
+                      yaxis_id: '0'
+                      stroke_width: 3
+                      color: ${states['sensor.wlanthermo_channel_9_color'].state}
                     - entity: sensor.wlanthermo_pitmaster_1_temp
                       name: Pit 1
                       yaxis_id: '0'
                       stroke_width: 1
                       color: >-
                         ${states['sensor.wlanthermo_pitmaster_1_set_color'].state}
-                      curve: stepline
-                    - entity: sensor.wlanthermo_pitmaster_2_temp
-                      name: Pit 2
-                      yaxis_id: '0'
-                      stroke_width: 1
-                      color: >-
-                        ${states['sensor.wlanthermo_pitmaster_2_set_color'].state}
                       curve: stepline
                   yaxis:
                     - id: '1'
@@ -599,7 +575,7 @@ views:
                       max: 200
                       opposite: false
                   header:
-                    show: true
+                    show: false
                     show_states: true
                   apex_config:
                     stroke:
@@ -613,4 +589,4 @@ views:
                         - 10
                         - 10
                     chart:
-                      height: 350px
+                      height: 400px

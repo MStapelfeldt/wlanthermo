@@ -1,0 +1,246 @@
+template:
+  - switch:
+      # --- ALERT SWITCHES ---
+      - name: wlanthermo_channel_1_alert
+        availability: >
+          {{ not is_state('sensor.wlanthermo_channel_1_all', 'unavailable') }}
+        state: >
+          {% set temp = state_attr('sensor.wlanthermo_channel_1_all', 'alarm') | int(0) %}
+          {{ temp in [2,3] }}
+        turn_on:
+          service: mqtt.publish
+          data:
+            topic: WLanThermo/${wlanthermo_model}/set/channels
+            retain: true
+            payload: >
+              {"number":1,"alarm":{{ state_attr('sensor.wlanthermo_channel_1_all', 'alarm') + 2 }}}
+        turn_off:
+          service: mqtt.publish
+          data:
+            topic: WLanThermo/${wlanthermo_model}/set/channels
+            retain: true
+            payload: >
+              {"number":1,"alarm":{{ state_attr('sensor.wlanthermo_channel_1_all', 'alarm') - 2 }}}
+        icon: >
+          {% if is_state('switch.wlanthermo_channel_1_alert', 'on') %}
+            mdi:bell-alert
+          {% else %}
+            mdi:bell-alert-outline
+          {% endif %}
+
+      - name: wlanthermo_channel_2_alert
+        availability: >
+          {{ not is_state('sensor.wlanthermo_channel_2_all', 'unavailable') }}
+        state: >
+          {% set temp = state_attr('sensor.wlanthermo_channel_2_all', 'alarm') | int(0) %}
+          {{ temp in [2,3] }}
+        turn_on:
+          service: mqtt.publish
+          data:
+            topic: WLanThermo/${wlanthermo_model}/set/channels
+            retain: true
+            payload: >
+              {"number":2,"alarm":{{ state_attr('sensor.wlanthermo_channel_2_all', 'alarm') + 2 }}}
+        turn_off:
+          service: mqtt.publish
+          data:
+            topic: WLanThermo/${wlanthermo_model}/set/channels
+            retain: true
+            payload: >
+              {"number":2,"alarm":{{ state_attr('sensor.wlanthermo_channel_2_all', 'alarm') - 2 }}}
+        icon: >
+          {% if is_state('switch.wlanthermo_channel_2_alert', 'on') %}
+            mdi:bell-alert
+          {% else %}
+            mdi:bell-alert-outline
+          {% endif %}
+
+      - name: wlanthermo_channel_3_alert
+        availability: >
+          {{ not is_state('sensor.wlanthermo_channel_3_all', 'unavailable') }}
+        state: >
+          {% set temp = state_attr('sensor.wlanthermo_channel_3_all', 'alarm') | int(0) %}
+          {{ temp in [2,3] }}
+        turn_on:
+          service: mqtt.publish
+          data:
+            topic: WLanThermo/${wlanthermo_model}/set/channels
+            retain: true
+            payload: >
+              {"number":3,"alarm":{{ state_attr('sensor.wlanthermo_channel_3_all', 'alarm') + 2 }}}
+        turn_off:
+          service: mqtt.publish
+          data:
+            topic: WLanThermo/${wlanthermo_model}/set/channels
+            retain: true
+            payload: >
+              {"number":3,"alarm":{{ state_attr('sensor.wlanthermo_channel_3_all', 'alarm') - 2 }}}
+        icon: >
+          {% if is_state('switch.wlanthermo_channel_3_alert', 'on') %}
+            mdi:bell-alert
+          {% else %}
+            mdi:bell-alert-outline
+          {% endif %}
+
+      - name: wlanthermo_channel_4_alert
+        availability: >
+          {{ not is_state('sensor.wlanthermo_channel_4_all', 'unavailable') }}
+        state: >
+          {% set temp = state_attr('sensor.wlanthermo_channel_4_all', 'alarm') | int(0) %}
+          {{ temp in [2,3] }}
+        turn_on:
+          service: mqtt.publish
+          data:
+            topic: WLanThermo/${wlanthermo_model}/set/channels
+            retain: true
+            payload: >
+              {"number":4,"alarm":{{ state_attr('sensor.wlanthermo_channel_4_all', 'alarm') + 2 }}}
+        turn_off:
+          service: mqtt.publish
+          data:
+            topic: WLanThermo/${wlanthermo_model}/set/channels
+            retain: true
+            payload: >
+              {"number":4,"alarm":{{ state_attr('sensor.wlanthermo_channel_4_all', 'alarm') - 2 }}}
+        icon: >
+          {% if is_state('switch.wlanthermo_channel_4_alert', 'on') %}
+            mdi:bell-alert
+          {% else %}
+            mdi:bell-alert-outline
+          {% endif %}
+
+      - name: wlanthermo_channel_5_alert
+        availability: >
+          {{ not is_state('sensor.wlanthermo_channel_5_all', 'unavailable') }}
+        state: >
+          {% set temp = state_attr('sensor.wlanthermo_channel_5_all', 'alarm') | int(0) %}
+          {{ temp in [2,3] }}
+        turn_on:
+          service: mqtt.publish
+          data:
+            topic: WLanThermo/${wlanthermo_model}/set/channels
+            retain: true
+            payload: >
+              {"number":5,"alarm":{{ state_attr('sensor.wlanthermo_channel_5_all', 'alarm') + 2 }}}
+        turn_off:
+          service: mqtt.publish
+          data:
+            topic: WLanThermo/${wlanthermo_model}/set/channels
+            retain: true
+            payload: >
+              {"number":5,"alarm":{{ state_attr('sensor.wlanthermo_channel_5_all', 'alarm') - 2 }}}
+        icon: >
+          {% if is_state('switch.wlanthermo_channel_5_alert', 'on') %}
+            mdi:bell-alert
+          {% else %}
+            mdi:bell-alert-outline
+          {% endif %}
+
+      - name: wlanthermo_channel_6_alert
+        availability: >
+          {{ not is_state('sensor.wlanthermo_channel_6_all', 'unavailable') }}
+        state: >
+          {% set temp = state_attr('sensor.wlanthermo_channel_6_all', 'alarm') | int(0) %}
+          {{ temp in [2,3] }}
+        turn_on:
+          service: mqtt.publish
+          data:
+            topic: WLanThermo/${wlanthermo_model}/set/channels
+            retain: true
+            payload: >
+              {"number":6,"alarm":{{ state_attr('sensor.wlanthermo_channel_6_all', 'alarm') + 2 }}}
+        turn_off:
+          service: mqtt.publish
+          data:
+            topic: WLanThermo/${wlanthermo_model}/set/channels
+            retain: true
+            payload: >
+              {"number":6,"alarm":{{ state_attr('sensor.wlanthermo_channel_6_all', 'alarm') - 2 }}}
+        icon: >
+          {% if is_state('switch.wlanthermo_channel_6_alert', 'on') %}
+            mdi:bell-alert
+          {% else %}
+            mdi:bell-alert-outline
+          {% endif %}
+
+      - name: wlanthermo_channel_7_alert
+        availability: >
+          {{ not is_state('sensor.wlanthermo_channel_7_all', 'unavailable') }}
+        state: >
+          {% set temp = state_attr('sensor.wlanthermo_channel_7_all', 'alarm') | int(0) %}
+          {{ temp in [2,3] }}
+        turn_on:
+          service: mqtt.publish
+          data:
+            topic: WLanThermo/${wlanthermo_model}/set/channels
+            retain: true
+            payload: >
+              {"number":7,"alarm":{{ state_attr('sensor.wlanthermo_channel_7_all', 'alarm') + 2 }}}
+        turn_off:
+          service: mqtt.publish
+          data:
+            topic: WLanThermo/${wlanthermo_model}/set/channels
+            retain: true
+            payload: >
+              {"number":7,"alarm":{{ state_attr('sensor.wlanthermo_channel_7_all', 'alarm') - 2 }}}
+        icon: >
+          {% if is_state('switch.wlanthermo_channel_7_alert', 'on') %}
+            mdi:bell-alert
+          {% else %}
+            mdi:bell-alert-outline
+          {% endif %}
+
+      - name: wlanthermo_channel_8_alert
+        availability: >
+          {{ not is_state('sensor.wlanthermo_channel_8_all', 'unavailable') }}
+        state: >
+          {% set temp = state_attr('sensor.wlanthermo_channel_8_all', 'alarm') | int(0) %}
+          {{ temp in [2,3] }}
+        turn_on:
+          service: mqtt.publish
+          data:
+            topic: WLanThermo/${wlanthermo_model}/set/channels
+            retain: true
+            payload: >
+              {"number":8,"alarm":{{ state_attr('sensor.wlanthermo_channel_8_all', 'alarm') + 2 }}}
+        turn_off:
+          service: mqtt.publish
+          data:
+            topic: WLanThermo/${wlanthermo_model}/set/channels
+            retain: true
+            payload: >
+              {"number":8,"alarm":{{ state_attr('sensor.wlanthermo_channel_8_all', 'alarm') - 2 }}}
+        icon: >
+          {% if is_state('switch.wlanthermo_channel_8_alert', 'on') %}
+            mdi:bell-alert
+          {% else %}
+            mdi:bell-alert-outline
+          {% endif %}
+
+      - name: wlanthermo_channel_9_alert
+        availability: >
+          {{ not is_state('sensor.wlanthermo_channel_9_all', 'unavailable') }}
+        state: >
+          {% set temp = state_attr('sensor.wlanthermo_channel_9_all', 'alarm') | int(0) %}
+          {{ temp in [2,3] }}
+        turn_on:
+          service: mqtt.publish
+          data:
+            topic: WLanThermo/${wlanthermo_model}/set/channels
+            retain: true
+            payload: >
+              {"number":9,"alarm":{{ state_attr('sensor.wlanthermo_channel_9_all', 'alarm') + 2 }}}
+        turn_off:
+          service: mqtt.publish
+          data:
+            topic: WLanThermo/${wlanthermo_model}/set/channels
+            retain: true
+            payload: >
+              {"number":9,"alarm":{{ state_attr('sensor.wlanthermo_channel_9_all', 'alarm') - 2 }}}
+        icon: >
+          {% if is_state('switch.wlanthermo_channel_9_alert', 'on') %}
+            mdi:bell-alert
+          {% else %}
+            mdi:bell-alert-outline
+          {% endif %}
+

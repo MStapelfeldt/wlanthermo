@@ -1,0 +1,239 @@
+template:
+  - binary_sensor:
+      - name: wlanthermo_charging
+        device_class: battery_charging
+        availability: >
+          {{ not is_state('sensor.bbq_thermo', 'unavailable') and not is_state('sensor.bbq_thermo', 'unknown') }}
+        state: >-
+          {% if not is_state('sensor.bbq_thermo', 'unavailable') and (not is_state('sensor.bbq_thermo', 'unknown')) %}
+          {{ state_attr('sensor.bbq_thermo', 'system').charge }}
+          {% else %}
+          Off
+          {% endif %}
+
+  - sensor:
+    - name: wlanthermo_pitmaster_1_change
+      unit_of_measurement: °C
+      default_entity_id: sensor.wlanthermo_pitmaster_1_change
+      availability: '{{ not is_state(''sensor.bbqthermo'', ''unavailable'') and not
+        is_state(''sensor.bbqthermo'', ''unknown'') and is_state(''select.wlanthermo_pitmaster_1_mode'',''auto'')
+        }}'
+      state: '{% if not is_state(''sensor.bbqthermo'', ''unavailable'') %} {% set pitChannel
+        = state_attr(''sensor.pitmaster_1_all'', ''channel'') %} {{ (states(''sensor.wlanthermo_channel_''~pitChannel~''_change'')
+        | float(0)) }} {% else %} 0 {% endif %}'
+
+    - name: wlanthermo_online_since
+      unique_id: wlanthermo_online_since
+      unit_of_measurement: "min"
+      icon: mdi:clock
+      availability: >
+        {{ not is_state('sensor.bbq_thermo', 'unavailable') and (not is_state('sensor.bbq_thermo', 'unknown')) }}
+      state: "{{ ((as_timestamp(now()) - (state_attr('input_datetime.wlanthermo_became_available','timestamp') | float(0))) / 60) | int }}"
+
+    - name: wlanthermo_channel_1_color
+      unique_id: wlanthermo_channel_1_color
+      availability: >
+        {{ not is_state('sensor.wlanthermo_channel_1_all','unavailable') }}
+      state: >
+        {{ state_attr('sensor.wlanthermo_channel_1_all','color') }}
+
+    - name: wlanthermo_channel_2_color
+      unique_id: wlanthermo_channel_2_color
+      availability: >
+        {{ not is_state('sensor.wlanthermo_channel_2_all','unavailable') }}
+      state: >
+        {{ state_attr('sensor.wlanthermo_channel_2_all','color') }}
+
+    - name: wlanthermo_channel_3_color
+      unique_id: wlanthermo_channel_3_color
+      availability: >
+        {{ not is_state('sensor.wlanthermo_channel_3_all','unavailable') }}
+      state: >
+        {{ state_attr('sensor.wlanthermo_channel_3_all','color') }}
+
+    - name: wlanthermo_channel_4_color
+      unique_id: wlanthermo_channel_4_color
+      availability: >
+        {{ not is_state('sensor.wlanthermo_channel_4_all','unavailable') }}
+      state: >
+        {{ state_attr('sensor.wlanthermo_channel_4_all','color') }}
+
+    - name: wlanthermo_channel_5_color
+      unique_id: wlanthermo_channel_5_color
+      availability: >
+        {{ not is_state('sensor.wlanthermo_channel_5_all','unavailable') }}
+      state: >
+        {{ state_attr('sensor.wlanthermo_channel_5_all','color') }}
+
+    - name: wlanthermo_channel_6_color
+      unique_id: wlanthermo_channel_6_color
+      availability: >
+        {{ not is_state('sensor.wlanthermo_channel_6_all','unavailable') }}
+      state: >
+        {{ state_attr('sensor.wlanthermo_channel_6_all','color') }}
+
+    - name: wlanthermo_channel_7_color
+      unique_id: wlanthermo_channel_7_color
+      availability: >
+        {{ not is_state('sensor.wlanthermo_channel_7_all','unavailable') }}
+      state: >
+        {{ state_attr('sensor.wlanthermo_channel_7_all','color') }}
+
+    - name: wlanthermo_channel_8_color
+      unique_id: wlanthermo_channel_8_color
+      availability: >
+        {{ not is_state('sensor.wlanthermo_channel_8_all','unavailable') }}
+      state: >
+        {{ state_attr('sensor.wlanthermo_channel_8_all','color') }}
+
+    - name: wlanthermo_channel_9_color
+      unique_id: wlanthermo_channel_9_color
+      availability: >
+        {{ not is_state('sensor.wlanthermo_channel_9_all','unavailable') }}
+      state: >
+        {{ state_attr('sensor.wlanthermo_channel_9_all','color') }}
+
+    - name: wlanthermo_pitmaster_1_set_color
+      unique_id: wlanthermo_pitmaster_1_set_color
+      availability: >
+        {{ not is_state('sensor.bbq_thermo','unavailable') }}
+      state: >
+        {{ state_attr('sensor.pitmaster_1_all', 'set_color') }}
+
+    - name: wlanthermo_pitmaster_1_value_color
+      unique_id: wlanthermo_pitmaster_1_value_color
+      availability: >
+        {{ not is_state('sensor.bbq_thermo','unavailable') }}
+      state: >
+        {{ state_attr('sensor.pitmaster_1_all', 'value_color') }}
+
+    - name: wlanthermo_pitmaster_1_temp
+      unique_id: wlanthermo_pitmaster_1_temp
+      unit_of_measurement: "°C"
+      state_class: measurement
+      device_class: temperature
+      availability: >
+        {{ not is_state('sensor.bbq_thermo','unavailable') }}
+      state: >
+        {% if not is_state('sensor.bbq_thermo', 'unavailable') and (not is_state('sensor.bbq_thermo', 'unknown')) and (state_attr('sensor.bbq_thermo', 'channel')[state_attr('sensor.pitmaster_1_all','channel')-1]['temp'] < 500) %}
+        {{ state_attr('sensor.bbq_thermo', 'channel')[state_attr('sensor.pitmaster_1_all','channel')-1]['temp'] }}
+        {% else %}
+        0
+        {% endif %}
+
+  - select:
+    - unique_id: wlanthermo_pitmaster_1_profile
+      name: wlanthermo_pitmaster_1_profile
+      icon: mdi:fan-speed-1
+      state: >
+        {% if not is_state('sensor.bbq_settings', 'unavailable') and (not is_state('sensor.bbq_settings', 'unknown')) and (not is_state('sensor.pitmaster_1_all', 'unavailable')) %}
+        {{ state_attr('sensor.bbq_settings', 'pid')[state_attr('sensor.pitmaster_1_all', 'pid')].name }}
+        {% else %}
+        {{ state_attr('sensor.pitmaster_1_all', 'pid') | int(0) }}
+        {% endif %}
+      availability: >
+        {{ not is_state('sensor.wlanthermo_pitmaster_1_value', 'unavailable') }}
+      select_option:
+          service: mqtt.publish
+          data_template:
+            topic: WLanThermo/${wlanthermo_model}/set/pitmaster
+            retain: true
+            payload: '{{ ''[{"id":0,"channel":''~state_attr(''sensor.pitmaster_1_all'', ''channel'')+'',"pid":''~state_attr(''select.wlanthermo_pitmaster_1_profile'',''options'').index(option)+'',"value":''~states(''number.wlanthermo_pitmaster_1_value'')+'',"set":''+states(''input_number.wlanthermo_pitmaster_1_temp'')+'',"typ":"''+states(''select.wlanthermo_pitmaster_1_mode'')+''"}]''}}'
+      options: |-
+        [
+        {% if not is_state('sensor.bbq_settings', 'unavailable') and (not is_state('sensor.bbq_settings', 'unknown')) %}
+        {% for item in state_attr('sensor.bbq_settings', 'pid') %}
+        '{{ item.name }}',
+        {% endfor %}
+        {% else %}
+        '0', '1', '2', '3'
+        {% endif %}
+        ]
+
+    - unique_id: wlanthermo_pitmaster_1_mode
+      name: wlanthermo_pitmaster_1_mode
+      icon: >
+        {% set pmTyp = state_attr('sensor.pitmaster_1_all', 'type') | string() %}
+        {% if pmTyp == 'auto' %}
+        mdi:fan-auto
+        {% else %}
+        {% if pmTyp == 'manual' %}
+        mdi:fan-plus
+        {% else %}
+        mdi:fan-off
+        {% endif %}
+        {% endif %}
+      state: "{{ state_attr('sensor.pitmaster_1_all', 'type') | string() }}"
+      availability: >
+        {{ not is_state('sensor.wlanthermo_pitmaster_1_value', 'unavailable') }}
+      select_option:
+          service: mqtt.publish
+          data_template:
+            topic: WLanThermo/${wlanthermo_model}/set/pitmaster
+            retain: true
+            payload: '{{ ''[{"id":0,"channel":''~state_attr(''sensor.pitmaster_1_all'', ''channel'')+'',"pid":''~state_attr(''sensor.pitmaster_1_all'', ''pid'')+'',"value":''~states(''number.wlanthermo_pitmaster_1_value'')+'',"set":''+states(''input_number.wlanthermo_pitmaster_1_temp'')+'',"typ":"''+option+''"}]''}}'
+      options: |-
+        [
+        {% if not is_state('sensor.bbq_thermo', 'unavailable') and (not is_state('sensor.bbq_thermo', 'unknown')) %}
+        {% for item in state_attr('sensor.bbq_thermo', 'pitmaster').type %}
+        '{{ item }}',
+        {% endfor %}
+        {% else %}
+        'None'
+        {% endif %}
+        ]
+
+    - unique_id: wlanthermo_pitmaster_1_channel
+      name: wlanthermo_pitmaster_1_channel
+      icon: mdi:pound
+      state: "{{ state_attr('sensor.pitmaster_1_all', 'channel') }}"
+      availability: >
+        {{ not is_state('sensor.pitmaster_1_all', 'unavailable') }}
+      select_option:
+          service: mqtt.publish
+          data_template:
+            topic: WLanThermo/${wlanthermo_model}/set/pitmaster
+            retain: true
+            payload: '{{ ''[{"id":0,"channel":''~(state_attr(''select.wlanthermo_pitmaster_1_channel'',''options'').index(option)+1)+'',"pid":''~state_attr(''sensor.pitmaster_1_all'', ''pid'')+'',"value":''~states(''number.wlanthermo_pitmaster_1_value'')+'',"set":''+states(''number.wlanthermo_pitmaster_1_temp'')+'',"typ":"''+states(''select.wlanthermo_pitmaster_1_mode'')+''"}]''}}'
+      options: |-
+        [
+        {% if not is_state('sensor.bbq_thermo', 'unavailable') and (not is_state('sensor.bbq_thermo', 'unknown')) %}
+        {% for item in state_attr('sensor.bbq_thermo', 'channel') %}
+        '{{ item.number }}',
+        {% endfor %}
+        {% else %}
+        '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'
+        {% endif %}
+        ]
+
+  - number:
+      - unique_id: wlanthermo_pitmaster_1_value
+        name: wlanthermo_pitmaster_1_value
+        state: "{{ states('sensor.pitmaster_1_all') | float(0) }}"
+        availability: >
+          {{ not is_state('sensor.wlanthermo_pitmaster_1_value', 'unavailable') }}
+        set_value:
+          service: mqtt.publish
+          data_template:
+            topic: WLanThermo/${wlanthermo_model}/set/pitmaster
+            retain: true
+            payload: '{{ ''[{"id":0,"channel":''~state_attr(''sensor.pitmaster_1_all'', ''channel'')+'',"pid":''~state_attr(''sensor.pitmaster_1_all'', ''pid'')+'',"value":''~value+'',"set":''+states(''input_number.wlanthermo_pitmaster_1_temp'')+'',"typ":''+states(''select.wlanthermo_pitmaster_1_mode'')+''}]''}}'
+        min: 0
+        max: 100
+        step: 1
+        icon: mdi:fan
+
+      - unique_id: pitmaster_1_temp
+        name: Pitmaster 1 temp
+        state: "{{ state_attr('sensor.pitmaster_1_all', 'set') }} "
+        availability: >
+          {{ not is_state('sensor.wlanthermo_pitmaster_1_temp', 'unavailable') }}
+        set_value:
+          service: mqtt.publish
+          data_template:
+            topic: WLanThermo/${wlanthermo_model}/set/pitmaster
+            payload: '{{ ''[{"id":0,"channel":''~state_attr(''sensor.pitmaster_1_all'',''channel'')+'' ,"pid":''~state_attr(''sensor.pitmaster_1_all'', ''pid'')+'',"value":''~states(''sensor.pitmaster_1_all'')+'',"set":''~value+'',"typ":''~states(''select.wlanthermo_pitmaster_1_mode'')+''}]''}}'
+        min: 0
+        max: 400
+        step: 1
+        icon: mdi:thermometer

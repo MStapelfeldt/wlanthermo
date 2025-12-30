@@ -1,16 +1,17 @@
-sensor:
-  - name: "BBQ Thermo"
-    # change topic to your modelname!
-    state_topic: "WLanThermo/MINIV3/status/data"
-    value_template: "{{ value_json.system.online }}"
-    json_attributes_topic: "WLanThermo/MINIV3/status/data"
-    json_attributes_template: "{{ value_json | tojson }}"
-    enabled_by_default: true
+mqtt:
+  sensor:
+    - name: "BBQ Thermo"
+      # change topic to your modelname!
+      state_topic: "WLanThermo/${wlanthermo_model}/status/data"
+      value_template: "{{ value_json.system.online }}"
+      json_attributes_topic: "WLanThermo/${wlanthermo_model}/status/data"
+      json_attributes_template: "{{ value_json | tojson }}"
+      enabled_by_default: true
 
-  - name: "BBQ Settings"
-    # change topic to your modelname!
-    state_topic: "WLanThermo/MINIV3/status/settings"
-    value_template: "{{ value_json.system.host }}"
-    json_attributes_topic: "WLanThermo/MINIV3/status/settings"
-    json_attributes_template: "{{ value_json | tojson }}"
-    enabled_by_default: true
+    - name: "BBQ Settings"
+      # change topic to your modelname!
+      state_topic: "WLanThermo/${wlanthermo_model}/status/settings"
+      value_template: "{{ value_json.system.host }}"
+      json_attributes_topic: "WLanThermo/${wlanthermo_model}/status/settings"
+      json_attributes_template: "{{ value_json | tojson }}"
+      enabled_by_default: true

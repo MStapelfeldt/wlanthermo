@@ -1,52 +1,56 @@
-wlanthermo_channel_1_timeleft:
-  name: Benachrichtigen 10min bevor Zieltemperatur erreicht
-  icon: mdi:timer
-wlanthermo_channel_2_timeleft:
-  name: Benachrichtigen 10min bevor Zieltemperatur erreicht
-  icon: mdi:timer
-wlanthermo_channel_3_timeleft:
-  name: Benachrichtigen 10min bevor Zieltemperatur erreicht
-  icon: mdi:timer
-wlanthermo_channel_4_timeleft:
-  name: Benachrichtigen 10min bevor Zieltemperatur erreicht
-  icon: mdi:timer
-wlanthermo_channel_5_timeleft:
-  name: Benachrichtigen 10min bevor Zieltemperatur erreicht
-  icon: mdi:timer
-wlanthermo_channel_6_timeleft:
-  name: Benachrichtigen 10min bevor Zieltemperatur erreicht
-  icon: mdi:timer
-wlanthermo_channel_7_timeleft:
-  name: Benachrichtigen 10min bevor Zieltemperatur erreicht
-  icon: mdi:timer
-wlanthermo_channel_8_timeleft:
-  name: Benachrichtigen 10min bevor Zieltemperatur erreicht
-  icon: mdi:timer
-wlanthermo_channel_1_panel_show:
-  name: Panel Kanal 1 anzeigen
-  icon: mdi:eye
-  initial: true
-wlanthermo_channel_2_panel_show:
-  name: Panel Kanal 2 anzeigen
-  icon: mdi:eye
-wlanthermo_channel_3_panel_show:
-  name: Panel Kanal 3 anzeigen
-  icon: mdi:eye
-wlanthermo_channel_4_panel_show:
-  name: Panel Kanal 4 anzeigen
-  icon: mdi:eye
-wlanthermo_channel_5_panel_show:
-  name: Panel Kanal 5 anzeigen
-  icon: mdi:eye
-wlanthermo_channel_6_panel_show:
-  name: Panel Kanal 6 anzeigen
-  icon: mdi:eye
-wlanthermo_channel_7_panel_show:
-  name: Panel Kanal 7 anzeigen
-  icon: mdi:eye
-wlanthermo_channel_8_panel_show:
-  name: Panel Kanal 8 anzeigen
-  icon: mdi:eye
-wlanthermo_pitmaster_2_panel_show:
-  name: Panel Pitmaster 2 anzeigen
-  icon: mdi:eye
+input_boolean:
+  wlanthermo_channel_1_timeleft:
+    name: Kanal 1 10min bevor Zieltemperatur erreicht
+    icon: mdi:timer
+  wlanthermo_channel_2_timeleft:
+    name: Kanal 2 10min bevor Zieltemperatur erreicht
+    icon: mdi:timer
+  wlanthermo_channel_3_timeleft:
+    name: Kanal 3 10min bevor Zieltemperatur erreicht
+    icon: mdi:timer
+  wlanthermo_channel_4_timeleft:
+    name: Kanal 4 10min bevor Zieltemperatur erreicht
+    icon: mdi:timer
+  wlanthermo_channel_5_timeleft:
+    name: Kanal 5 10min bevor Zieltemperatur erreicht
+    icon: mdi:timer
+  wlanthermo_channel_6_timeleft:
+    name: Kanal 6 10min bevor Zieltemperatur erreicht
+    icon: mdi:timer
+  wlanthermo_channel_7_timeleft:
+    name: Kanal 7 10min bevor Zieltemperatur erreicht
+    icon: mdi:timer
+  wlanthermo_channel_8_timeleft:
+    name: Kanal 8 10min bevor Zieltemperatur erreicht
+    icon: mdi:timer
+  wlanthermo_channel_9_timeleft:
+    name: Kanal 9 10min bevor Zieltemperatur erreicht
+    icon: mdi:timer
+  wlanthermo_channel_1_panel_show:
+    name: Panel Kanal 1 anzeigen
+    icon: mdi:eye
+    initial: true
+  wlanthermo_channel_2_panel_show:
+    name: Panel Kanal 2 anzeigen
+    icon: mdi:eye
+  wlanthermo_channel_3_panel_show:
+    name: Panel Kanal 3 anzeigen
+    icon: mdi:eye
+  wlanthermo_channel_4_panel_show:
+    name: Panel Kanal 4 anzeigen
+    icon: mdi:eye
+  wlanthermo_channel_5_panel_show:
+    name: Panel Kanal 5 anzeigen
+    icon: mdi:eye
+  wlanthermo_channel_6_panel_show:
+    name: Panel Kanal 6 anzeigen
+    icon: mdi:eye
+  wlanthermo_channel_7_panel_show:
+    name: Panel Kanal 7 anzeigen
+    icon: mdi:eye
+  wlanthermo_channel_8_panel_show:
+    name: Panel Kanal 8 anzeigen
+    icon: mdi:eye
+  wlanthermo_channel_9_panel_show:
+    name: Panel Kanal 9 anzeigen
+    icon: mdi:eye
