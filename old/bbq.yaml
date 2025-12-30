@@ -1,0 +1,616 @@
+kiosk_mode:
+  hide_header: true
+views:
+  - title: Home
+    type: panel
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - card:
+                  type: custom:button-card
+                  entity: sensor.wlanthermo_channel_1_all
+                  show_name: true
+                  name: Kanal 1
+                  show_icon: false
+                  show_state: true
+                  tap_action:
+                    action: call-service
+                    service: input_boolean.turn_on
+                    service_data:
+                      entity_id: input_boolean.wlanthermo_channel_1_panel_show
+                conditions:
+                  - entity: sensor.wlanthermo_channel_1_all
+                    state_not: unavailable
+                type: conditional
+              - card:
+                  type: custom:button-card
+                  entity: sensor.wlanthermo_channel_2_all
+                  show_name: true
+                  name: Kanal 2
+                  show_icon: false
+                  show_state: true
+                  tap_action:
+                    action: call-service
+                    service: input_boolean.turn_on
+                    service_data:
+                      entity_id: input_boolean.wlanthermo_channel_2_panel_show
+                conditions:
+                  - entity: sensor.wlanthermo_channel_2_all
+                    state_not: unavailable
+                type: conditional
+              - card:
+                  type: custom:button-card
+                  entity: sensor.wlanthermo_channel_3_all
+                  show_name: true
+                  name: Kanal 3
+                  show_icon: false
+                  show_state: true
+                  tap_action:
+                    action: call-service
+                    service: input_boolean.turn_on
+                    service_data:
+                      entity_id: input_boolean.wlanthermo_channel_3_panel_show
+                conditions:
+                  - entity: sensor.wlanthermo_channel_3_all
+                    state_not: unavailable
+                type: conditional
+              - card:
+                  type: custom:button-card
+                  entity: sensor.wlanthermo_channel_4_all
+                  show_name: true
+                  name: Kanal 4
+                  show_icon: false
+                  show_state: true
+                  tap_action:
+                    action: call-service
+                    service: input_boolean.turn_on
+                    service_data:
+                      entity_id: input_boolean.wlanthermo_channel_4_panel_show
+                conditions:
+                  - entity: sensor.wlanthermo_channel_4_all
+                    state_not: unavailable
+                type: conditional
+              - card:
+                  type: custom:button-card
+                  entity: sensor.wlanthermo_channel_5_all
+                  show_name: true
+                  name: Kanal 5
+                  show_icon: false
+                  show_state: true
+                  tap_action:
+                    action: call-service
+                    service: input_boolean.turn_on
+                    service_data:
+                      entity_id: input_boolean.wlanthermo_channel_5_panel_show
+                conditions:
+                  - entity: sensor.wlanthermo_channel_5_all
+                    state_not: unavailable
+                type: conditional
+              - card:
+                  type: custom:button-card
+                  entity: sensor.wlanthermo_channel_6_all
+                  show_name: true
+                  name: Kanal 6
+                  show_icon: false
+                  show_state: true
+                  tap_action:
+                    action: call-service
+                    service: input_boolean.turn_on
+                    service_data:
+                      entity_id: input_boolean.wlanthermo_channel_6_panel_show
+                conditions:
+                  - entity: sensor.wlanthermo_channel_6_all
+                    state_not: unavailable
+                type: conditional
+              - card:
+                  type: custom:button-card
+                  entity: sensor.wlanthermo_channel_7_all
+                  show_name: true
+                  name: Kanal 7
+                  show_icon: false
+                  show_state: true
+                  tap_action:
+                    action: call-service
+                    service: input_boolean.turn_on
+                    service_data:
+                      entity_id: input_boolean.wlanthermo_channel_7_panel_show
+                conditions:
+                  - entity: sensor.wlanthermo_channel_7_all
+                    state_not: unavailable
+                type: conditional
+              - card:
+                  type: custom:button-card
+                  entity: sensor.wlanthermo_channel_8_all
+                  show_name: true
+                  name: Kanal 8
+                  show_icon: false
+                  show_state: true
+                  tap_action:
+                    action: call-service
+                    service: input_boolean.turn_on
+                    service_data:
+                      entity_id: input_boolean.wlanthermo_channel_8_panel_show
+                conditions:
+                  - entity: sensor.wlanthermo_channel_8_all
+                    state_not: unavailable
+                type: conditional
+              - type: custom:button-card
+                entity: sensor.wlanthermo_pitmaster_2_temp
+                show_name: true
+                name: PitMaster 2
+                show_icon: false
+                show_state: true
+                tap_action:
+                  action: call-service
+                  service: input_boolean.turn_on
+                  service_data:
+                    entity_id: input_boolean.wlanthermo_pitmaster_2_panel_show
+          - type: custom:layout-card
+            layout_type: grid
+            layout:
+              grid-template-columns: 33% 66%
+              grid-template-rows: auto
+              grid-template-areas: |
+                "main main2 main3"
+            cards:
+              - type: custom:badge-card
+                badges:
+                  - entity: sensor.wlanthermo_channel_1_timeleft
+                    name: Channel 1 Timer
+                  - entity: sensor.wlanthermo_channel_2_timeleft
+                    name: Channel 2 Timer
+                  - entity: sensor.wlanthermo_channel_3_timeleft
+                    name: Channel 3 Timer
+                  - entity: sensor.wlanthermo_channel_4_timeleft
+                    name: Channel 4 Timer
+                  - entity: sensor.wlanthermo_channel_5_timeleft
+                    name: Channel 5 Timer
+                  - entity: sensor.wlanthermo_channel_6_timeleft
+                    name: Channel 6 Timer
+                  - entity: sensor.wlanthermo_channel_7_timeleft
+                    name: Channel 7 Timer
+                  - entity: sensor.wlanthermo_channel_8_timeleft
+                    name: Channel 8 Timer
+              - card:
+                  type: custom:vertical-stack-in-card
+                  cards:
+                    - type: custom:vertical-stack-in-card
+                      horizontal: true
+                      cards:
+                        - type: entity
+                          entity: sensor.pitmaster_1_all
+                          name: Pitmaster 1
+                        - type: entity
+                          entity: sensor.wlanthermo_pitmaster_1_temp
+                          name: Temp
+                        - card:
+                            type: entities
+                            entities:
+                              - entity: number.pit_1_soll_temp_2
+                                name: Soll
+                          conditions:
+                            - entity: select.wlanthermo_pitmaster_1_mode
+                              state: auto
+                          type: conditional
+                    - type: horizontal-stack
+                      cards:
+                        - type: entity
+                          entity: select.wlanthermo_pitmaster_1_mode
+                          name: Modus
+                        - type: entity
+                          entity: select.wlanthermo_pitmaster_1_profile
+                          name: Profil
+                        - type: entity
+                          entity: select.wlanthermo_pitmaster_1_channel
+                          name: Kanal
+                conditions:
+                  - entity: sensor.pitmaster_1_all
+                    state_not: unavailable
+                type: conditional
+          - type: custom:layout-card
+            layout_type: grid
+            layout:
+              grid-template-columns: 33% 66%
+              grid-template-rows: auto
+              grid-template-areas: |
+                "main main2"
+            cards:
+              - card:
+                  type: custom:vertical-stack-in-card
+                  layout:
+                    height: 500px
+                  cards:
+                    - entity: sensor.wlanthermo_channel_1_all
+                      type: entity
+                    - entities:
+                        - entity: input_text.wlanthermo_channel_1_name
+                          name: Name
+                        - entity: input_number.wlanthermo_channel_1_min
+                          name: Minimum
+                        - entity: input_number.wlanthermo_channel_1_max
+                          name: Maxmimum
+                      type: entities
+                      header:
+                        type: buttons
+                        entities:
+                          - switch.wlanthermo_channel_1_push
+                          - switch.wlanthermo_channel_1_alert
+                          - input_boolean.wlanthermo_channel_1_timeleft
+                conditions:
+                  - entity: sensor.wlanthermo_channel_1_all
+                    state_not: unavailable
+                  - entity: input_boolean.wlanthermo_channel_1_panel_show
+                    state: 'on'
+                type: conditional
+              - card:
+                  type: custom:vertical-stack-in-card
+                  cards:
+                    - entity: sensor.wlanthermo_channel_2_all
+                      type: entity
+                    - entities:
+                        - entity: input_text.wlanthermo_channel_2_name
+                          name: Name
+                        - entity: input_number.wlanthermo_channel_2_min
+                          name: Minimum
+                        - entity: input_number.wlanthermo_channel_2_max
+                          name: Maxmimum
+                      type: entities
+                      header:
+                        type: buttons
+                        entities:
+                          - switch.wlanthermo_channel_2_push
+                          - switch.wlanthermo_channel_2_alert
+                          - input_boolean.wlanthermo_channel_2_timeleft
+                conditions:
+                  - entity: sensor.wlanthermo_channel_2_all
+                    state_not: unavailable
+                  - entity: input_boolean.wlanthermo_channel_2_panel_show
+                    state: 'on'
+                type: conditional
+              - card:
+                  type: custom:vertical-stack-in-card
+                  cards:
+                    - entity: sensor.wlanthermo_channel_3_all
+                      type: entity
+                    - entities:
+                        - entity: input_text.wlanthermo_channel_3_name
+                          name: Name
+                        - entity: input_number.wlanthermo_channel_3_min
+                          name: Minimum
+                        - entity: input_number.wlanthermo_channel_3_max
+                          name: Maxmimum
+                      type: entities
+                      header:
+                        type: buttons
+                        entities:
+                          - switch.wlanthermo_channel_3_push
+                          - switch.wlanthermo_channel_3_alert
+                          - input_boolean.wlanthermo_channel_3_timeleft
+                conditions:
+                  - entity: sensor.wlanthermo_channel_3_all
+                    state_not: unavailable
+                  - entity: input_boolean.wlanthermo_channel_3_panel_show
+                    state: 'on'
+                type: conditional
+              - card:
+                  type: custom:vertical-stack-in-card
+                  cards:
+                    - entity: sensor.wlanthermo_channel_4_all
+                      type: entity
+                    - entities:
+                        - entity: input_text.wlanthermo_channel_4_name
+                          name: Name
+                        - entity: input_number.wlanthermo_channel_4_min
+                          name: Minimum
+                        - entity: input_number.wlanthermo_channel_4_max
+                          name: Maxmimum
+                      type: entities
+                      header:
+                        type: buttons
+                        entities:
+                          - switch.wlanthermo_channel_4_push
+                          - switch.wlanthermo_channel_4_alert
+                          - input_boolean.wlanthermo_channel_4_timeleft
+                conditions:
+                  - entity: sensor.wlanthermo_channel_4_all
+                    state_not: unavailable
+                  - entity: input_boolean.wlanthermo_channel_4_panel_show
+                    state: 'on'
+                type: conditional
+              - card:
+                  type: custom:vertical-stack-in-card
+                  cards:
+                    - entity: sensor.wlanthermo_channel_5_all
+                      type: entity
+                    - entities:
+                        - entity: input_text.wlanthermo_channel_5_name
+                          name: Name
+                        - entity: input_number.wlanthermo_channel_5_min
+                          name: Minimum
+                        - entity: input_number.wlanthermo_channel_5_max
+                          name: Maxmimum
+                      type: entities
+                      header:
+                        type: buttons
+                        entities:
+                          - switch.wlanthermo_channel_5_push
+                          - switch.wlanthermo_channel_5_alert
+                          - input_boolean.wlanthermo_channel_5_timeleft
+                conditions:
+                  - entity: sensor.wlanthermo_channel_5_all
+                    state_not: unavailable
+                  - entity: input_boolean.wlanthermo_channel_5_panel_show
+                    state: 'on'
+                type: conditional
+              - card:
+                  type: custom:vertical-stack-in-card
+                  cards:
+                    - entity: sensor.wlanthermo_channel_6_all
+                      type: entity
+                    - entities:
+                        - entity: input_text.wlanthermo_channel_6_name
+                          name: Name
+                        - entity: input_number.wlanthermo_channel_6_min
+                          name: Minimum
+                        - entity: input_number.wlanthermo_channel_6_max
+                          name: Maxmimum
+                      type: entities
+                      header:
+                        type: buttons
+                        entities:
+                          - switch.wlanthermo_channel_6_push
+                          - switch.wlanthermo_channel_6_alert
+                          - input_boolean.wlanthermo_channel_6_timeleft
+                conditions:
+                  - entity: sensor.wlanthermo_channel_6_all
+                    state_not: unavailable
+                  - entity: input_boolean.wlanthermo_channel_6_panel_show
+                    state: 'on'
+                type: conditional
+              - card:
+                  type: custom:vertical-stack-in-card
+                  cards:
+                    - entity: sensor.wlanthermo_channel_7_all
+                      type: entity
+                    - entities:
+                        - entity: input_text.wlanthermo_channel_7_name
+                          name: Name
+                        - entity: input_number.wlanthermo_channel_7_min
+                          name: Minimum
+                        - entity: input_number.wlanthermo_channel_7_max
+                          name: Maxmimum
+                      type: entities
+                      header:
+                        type: buttons
+                        entities:
+                          - switch.wlanthermo_channel_7_push
+                          - switch.wlanthermo_channel_7_alert
+                          - input_boolean.wlanthermo_channel_7_timeleft
+                conditions:
+                  - entity: sensor.wlanthermo_channel_7_all
+                    state_not: unavailable
+                  - entity: input_boolean.wlanthermo_channel_7_panel_show
+                    state: 'on'
+                type: conditional
+              - card:
+                  type: custom:vertical-stack-in-card
+                  cards:
+                    - entity: sensor.wlanthermo_channel_8_all
+                      type: entity
+                    - entities:
+                        - entity: input_text.wlanthermo_channel_8_name
+                          name: Name
+                        - entity: input_number.wlanthermo_channel_8_min
+                          name: Minimum
+                        - entity: input_number.wlanthermo_channel_8_max
+                          name: Maxmimum
+                      type: entities
+                      header:
+                        type: buttons
+                        entities:
+                          - switch.wlanthermo_channel_8_push
+                          - switch.wlanthermo_channel_8_alert
+                          - input_boolean.wlanthermo_channel_8_timeleft
+                conditions:
+                  - entity: sensor.wlanthermo_channel_8_all
+                    state_not: unavailable
+                  - entity: input_boolean.wlanthermo_channel_8_panel_show
+                    state: 'on'
+                type: conditional
+              - card:
+                  type: custom:vertical-stack-in-card
+                  cards:
+                    - type: entity
+                      entity: sensor.pitmaster_2_all
+                      name: Pitmaster 2
+                    - type: entities
+                      entities:
+                        - entity: select.wlanthermo_pitmaster_2_mode
+                          name: Modus
+                    - card:
+                        type: entities
+                        entities:
+                          - entity: select.wlanthermo_pitmaster_2_profile
+                            name: Profil
+                      conditions:
+                        - entity: select.wlanthermo_pitmaster_2_mode
+                          state_not: 'off'
+                      type: conditional
+                    - card:
+                        type: entities
+                        entities:
+                          - entity: select.wlanthermo_pitmaster_2_channel
+                            name: Kanal
+                          - entity: number.pit_2_soll_temp_2
+                      conditions:
+                        - entity: select.wlanthermo_pitmaster_2_mode
+                          state: auto
+                      type: conditional
+                    - card:
+                        type: entities
+                        entities:
+                          - entity: number.wlanthermo_pitmaster_2_value
+                            name: Drehzahl
+                      conditions:
+                        - entity: select.wlanthermo_pitmaster_2_mode
+                          state: manual
+                      type: conditional
+                conditions:
+                  - entity: sensor.pitmaster_2_all
+                    state_not: unavailable
+                  - entity: input_boolean.wlanthermo_pitmaster_2_panel_show
+                    state: 'on'
+                type: conditional
+              - type: custom:config-template-card
+                entities:
+                  - sensor.wlanthermo_channel_1_color
+                  - sensor.wlanthermo_channel_2_color
+                  - sensor.wlanthermo_channel_3_color
+                  - sensor.wlanthermo_channel_4_color
+                  - sensor.wlanthermo_channel_5_color
+                  - sensor.wlanthermo_channel_6_color
+                  - sensor.wlanthermo_channel_7_color
+                  - sensor.wlanthermo_channel_8_color
+                  - sensor.wlanthermo_pitmaster_1_value_color
+                  - sensor.wlanthermo_pitmaster_1_set_color
+                  - sensor.wlanthermo_pitmaster_2_value_color
+                  - sensor.wlanthermo_pitmaster_2_set_color
+                  - sensor.wlanthermo_online_since
+                card:
+                  type: custom:apexcharts-card
+                  update_interval: 5sec
+                  graph_span: >-
+                    ${Math.min(1440, 10 +
+                    parseInt(states['sensor.wlanthermo_online_since'].state) ||
+                    0) + 'min'}
+                  series:
+                    - entity: sensor.pitmaster_1_all
+                      name: Pit %
+                      statistics:
+                        type: max
+                        period: 5minute
+                      yaxis_id: '1'
+                      stroke_width: 1
+                      type: area
+                      opacity: 0.25
+                      curve: stepline
+                      color: >-
+                        ${states['sensor.wlanthermo_pitmaster_1_value_color'].state}
+                    - entity: sensor.pitmaster_2_all
+                      name: Pit %
+                      statistics:
+                        type: max
+                        period: 5minute
+                      yaxis_id: '1'
+                      stroke_width: 1
+                      type: area
+                      opacity: 0.25
+                      curve: stepline
+                      color: >-
+                        ${states['sensor.wlanthermo_pitmaster_2_value_color'].state}
+                    - entity: sensor.wlanthermo_channel_1_all
+                      name: Kanal 1
+                      statistics:
+                        type: max
+                        period: 5minute
+                      yaxis_id: '0'
+                      stroke_width: 3
+                      color: ${states['sensor.wlanthermo_channel_1_color'].state}
+                    - entity: sensor.wlanthermo_channel_2_all
+                      name: Kanal 2
+                      statistics:
+                        type: max
+                        period: 5minute
+                      yaxis_id: '0'
+                      stroke_width: 3
+                      color: ${states['sensor.wlanthermo_channel_2_color'].state}
+                    - entity: sensor.wlanthermo_channel_3_all
+                      name: Kanal 3
+                      statistics:
+                        type: max
+                        period: 5minute
+                      yaxis_id: '0'
+                      stroke_width: 3
+                      color: ${states['sensor.wlanthermo_channel_3_color'].state}
+                    - entity: sensor.wlanthermo_channel_4_all
+                      name: Kanal 4
+                      statistics:
+                        type: max
+                        period: 5minute
+                      yaxis_id: '0'
+                      stroke_width: 3
+                      color: ${states['sensor.wlanthermo_channel_4_color'].state}
+                    - entity: sensor.wlanthermo_channel_5_all
+                      name: Kanal 5
+                      statistics:
+                        type: max
+                        period: 5minute
+                      yaxis_id: '0'
+                      stroke_width: 3
+                      color: ${states['sensor.wlanthermo_channel_5_color'].state}
+                    - entity: sensor.wlanthermo_channel_6_all
+                      name: Kanal 6
+                      statistics:
+                        type: max
+                        period: 5minute
+                      yaxis_id: '0'
+                      stroke_width: 3
+                      color: ${states['sensor.wlanthermo_channel_6_color'].state}
+                    - name: Kanal 7
+                      entity: sensor.wlanthermo_channel_7_all
+                      statistics:
+                        type: max
+                        period: 5minute
+                      yaxis_id: '0'
+                      stroke_width: 3
+                      color: ${states['sensor.wlanthermo_channel_7_color'].state}
+                    - entity: sensor.wlanthermo_channel_8_all
+                      name: Kanal 8
+                      statistics:
+                        type: max
+                        period: 5minute
+                      yaxis_id: '0'
+                      stroke_width: 3
+                      color: ${states['sensor.wlanthermo_channel_8_color'].state}
+                    - entity: sensor.wlanthermo_pitmaster_1_temp
+                      name: Pit 1
+                      yaxis_id: '0'
+                      stroke_width: 1
+                      color: >-
+                        ${states['sensor.wlanthermo_pitmaster_1_set_color'].state}
+                      curve: stepline
+                    - entity: sensor.wlanthermo_pitmaster_2_temp
+                      name: Pit 2
+                      yaxis_id: '0'
+                      stroke_width: 1
+                      color: >-
+                        ${states['sensor.wlanthermo_pitmaster_2_set_color'].state}
+                      curve: stepline
+                  yaxis:
+                    - id: '1'
+                      opposite: true
+                      min: 0
+                      max: 100
+                    - id: '0'
+                      min: 0
+                      max: 200
+                      opposite: false
+                  header:
+                    show: true
+                    show_states: true
+                  apex_config:
+                    stroke:
+                      dashArray:
+                        - 0
+                        - 0
+                        - 0
+                        - 0
+                        - 0
+                        - 10
+                        - 10
+                        - 10
+                    chart:
+                      height: 350px

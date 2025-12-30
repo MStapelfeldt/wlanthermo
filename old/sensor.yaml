@@ -1,0 +1,228 @@
+  - platform: statistics
+    name: wlanthermo_channel_1_change
+    entity_id: sensor.wlanthermo_channel_1_all
+    state_characteristic: change_second
+    max_age:
+      minutes: 30
+    precision: 10
+    sampling_size: 300
+
+  - platform: statistics
+    name: wlanthermo_channel_2_change
+    entity_id: sensor.wlanthermo_channel_2_all
+    state_characteristic: change_second
+    max_age:
+      minutes: 30
+    precision: 10
+    sampling_size: 300
+
+  - platform: statistics
+    name: wlanthermo_channel_3_change
+    entity_id: sensor.wlanthermo_channel_3_all
+    state_characteristic: change_second
+    max_age:
+      minutes: 30
+    precision: 10
+    sampling_size: 300
+
+  - platform: statistics
+    name: wlanthermo_channel_4_change
+    entity_id: sensor.wlanthermo_channel_4_all
+    state_characteristic: change_second
+    max_age:
+      minutes: 30
+    precision: 10
+    sampling_size: 300
+
+  - platform: statistics
+    name: wlanthermo_channel_5_change
+    entity_id: sensor.wlanthermo_channel_5_all
+    state_characteristic: change_second
+    max_age:
+      minutes: 30
+    precision: 10
+    sampling_size: 300
+
+  - platform: statistics
+    name: wlanthermo_channel_6_change
+    entity_id: sensor.wlanthermo_channel_6_all
+    state_characteristic: change_second
+    max_age:
+      minutes: 30
+    precision: 10
+    sampling_size: 300
+
+  - platform: statistics
+    name: wlanthermo_channel_7_change
+    entity_id: sensor.wlanthermo_channel_7_all
+    state_characteristic: change_second
+    max_age:
+      minutes: 30
+    precision: 10
+    sampling_size: 300
+
+  - platform: statistics
+    name: wlanthermo_channel_8_change
+    entity_id: sensor.wlanthermo_channel_8_all
+    state_characteristic: change_second
+    max_age:
+      minutes: 30
+    precision: 10
+    sampling_size: 300
+
+  - platform: template
+    sensors:
+      wlanthermo_channel_1_timeleft:
+        unit_of_measurement: "min"
+        value_template: >
+          {% set change = (states('sensor.wlanthermo_channel_1_change') | float(0)) %}
+          {% if change > 0 %}
+          {{ ((state_attr('sensor.wlanthermo_channel_1_all', 'max') | float(0) - states('sensor.wlanthermo_channel_1_all') | float(0)) / (change * 60)) | round(2) }}
+          {% else %}
+          {{ 0 | int }}
+          {% endif %}
+        icon_template: mdi:timer
+        availability_template: >
+          {{ not is_state('sensor.wlanthermo_channel_1_all', 'unavailable') }}
+
+  - platform: template
+    sensors:
+      wlanthermo_channel_2_timeleft:
+        unit_of_measurement: "min"
+        value_template: >
+          {% set change = (states('sensor.wlanthermo_channel_2_change') | float(0)) %}
+          {% if change > 0 %}
+          {{ ((state_attr('sensor.wlanthermo_channel_2_all', 'max') | float(0) - states('sensor.wlanthermo_channel_2_all') | float(0)) / (change * 60)) | round(2) }}
+          {% else %}
+          {{ 0 | int }}
+          {% endif %}
+        icon_template: mdi:timer
+        availability_template: >
+          {{ not is_state('sensor.wlanthermo_channel_2_all', 'unavailable') }}
+
+  - platform: template
+    sensors:
+      wlanthermo_channel_3_timeleft:
+        unit_of_measurement: "min"
+        value_template: >
+          {% set change = (states('sensor.wlanthermo_channel_3_change') | float(0)) %}
+          {% if change > 0 %}
+          {{ ((state_attr('sensor.wlanthermo_channel_3_all', 'max') | float(0) - states('sensor.wlanthermo_channel_3_all') | float(0)) / (change * 60)) | round(2) }}
+          {% else %}
+          {{ 0 | int }}
+          {% endif %}
+        icon_template: mdi:timer
+        availability_template: >
+          {{ not is_state('sensor.wlanthermo_channel_3_all', 'unavailable') }}
+
+  - platform: template
+    sensors:
+      wlanthermo_channel_4_timeleft:
+        unit_of_measurement: "min"
+        value_template: >
+          {% set change = (states('sensor.wlanthermo_channel_4_change') | float(0)) %}
+          {% if change > 0 %}
+          {{ ((state_attr('sensor.wlanthermo_channel_4_all', 'max') | float(0) - states('sensor.wlanthermo_channel_4_all') | float(0)) / (change * 60)) | round(2) }}
+          {% else %}
+          {{ 0 | int }}
+          {% endif %}
+        icon_template: mdi:timer
+        availability_template: >
+          {{ not is_state('sensor.wlanthermo_channel_4_all', 'unavailable') }}
+
+  - platform: template
+    sensors:
+      wlanthermo_channel_5_timeleft:
+        unit_of_measurement: "min"
+        value_template: >
+          {% set change = (states('sensor.wlanthermo_channel_5_change') | float(0)) %}
+          {% if change > 0 %}
+          {{ ((state_attr('sensor.wlanthermo_channel_5_all', 'max') | float(0) - states('sensor.wlanthermo_channel_5_all') | float(0)) / (change * 60)) | round(2) }}
+          {% else %}
+          {{ 0 | int }}
+          {% endif %}
+        icon_template: mdi:timer
+        availability_template: >
+          {{ not is_state('sensor.wlanthermo_channel_5_all', 'unavailable') }}
+
+  - platform: template
+    sensors:
+      wlanthermo_channel_6_timeleft:
+        unit_of_measurement: "min"
+        value_template: >
+          {% set change = (states('sensor.wlanthermo_channel_6_change') | float(0)) %}
+          {% if change > 0 %}
+          {{ ((state_attr('sensor.wlanthermo_channel_6_all', 'max') | float(0) - states('sensor.wlanthermo_channel_6_all') | float(0)) / (change * 60)) | round(2) }}
+          {% else %}
+          {{ 0 | int }}
+          {% endif %}
+        icon_template: mdi:timer
+        availability_template: >
+          {{ not is_state('sensor.wlanthermo_channel_6_all', 'unavailable') }}
+
+  - platform: template
+    sensors:
+      wlanthermo_channel_7_timeleft:
+        unit_of_measurement: "min"
+        value_template: >
+          {% set change = (states('sensor.wlanthermo_channel_7_change') | float(0)) %}
+          {% if change > 0 %}
+          {{ ((state_attr('sensor.wlanthermo_channel_7_all', 'max') | float(0) - states('sensor.wlanthermo_channel_7_all') | float(0)) / (change * 60)) | round(2) }}
+          {% else %}
+          {{ 0 | int }}
+          {% endif %}
+        icon_template: mdi:timer
+        availability_template: >
+          {{ not is_state('sensor.wlanthermo_channel_7_all', 'unavailable') }}
+
+  - platform: template
+    sensors:
+      wlanthermo_channel_8_timeleft:
+        unit_of_measurement: "min"
+        value_template: >
+          {% set change = (states('sensor.wlanthermo_channel_8_change') | float(0)) %}
+          {% if change > 0 %}
+          {{ ((state_attr('sensor.wlanthermo_channel_8_all', 'max') | float(0) - states('sensor.wlanthermo_channel_8_all') | float(0)) / (change * 60)) | round(2) }}
+          {% else %}
+          {{ 0 | int }}
+          {% endif %}
+        icon_template: mdi:timer
+        availability_template: >
+          {{ not is_state('sensor.wlanthermo_channel_8_all', 'unavailable') }}
+
+  - platform: template
+    sensors:
+      wlanthermo_pitmaster_1_change:
+        unit_of_measurement: °C
+        value_template: >
+          {% if not is_state('sensor.bbqthermo', 'unavailable') %}
+          {% set pitChannel = state_attr('sensor.pitmaster_1_all', 'channel') %}
+          {{ (states('sensor.wlanthermo_channel_'~pitChannel~'_change') | float(0)) }}
+          {% else %}
+          0
+          {% endif %}
+        availability_template: >
+          {{ not is_state('sensor.bbqthermo', 'unavailable') and not is_state('sensor.bbqthermo', 'unknown') and is_state('select.wlanthermo_pitmaster_1_mode','auto') }}
+
+  - platform: template
+    sensors:
+      wlanthermo_pitmaster_2_change:
+        unit_of_measurement: °C
+        value_template: >
+          {% if not is_state('sensor.bbqthermo', 'unavailable') %}
+          {% set pitChannel = state_attr('sensor.pitmaster_2_all', 'channel') %}
+          {{ (states('sensor.wlanthermo_channel_'~pitChannel~'_change') | float(0)) }}
+          {% else %}
+          0
+          {% endif %}
+        availability_template: >
+          {{ not is_state('sensor.bbqthermo', 'unavailable') and not is_state('sensor.bbqthermo', 'unknown') and is_state('select.wlanthermo_pitmaster_2_mode','auto') }}
+
+  - platform: statistics
+    name: wlanthermo_pitmaster_value_avg
+    entity_id: sensor.wlanthermo_pitmaster_value
+    state_characteristic: average_linear
+    max_age:
+      minutes: 30
+    sampling_size: 20
+    precision: 2
