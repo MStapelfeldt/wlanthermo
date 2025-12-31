@@ -161,39 +161,25 @@ views:
               grid-template-areas: |
                 "main main2 main3"
             cards:
-              - type: custom:layout-card
-                layout_type: grid
-                layout:
-                  grid-template-columns: repeat(3, 1fr)
-                  grid-template-rows: repeat(3, auto)
-                  grid-gap: 8px
-                cards:
-                  - type: entity
-                    entity: sensor.wlanthermo_channel_1_timeleft
+              - type: custom:badge-card
+                badges:
+                  - entity: sensor.wlanthermo_channel_1_timeleft
                     name: Channel 1 Timer
-                  - type: entity
-                    entity: sensor.wlanthermo_channel_2_timeleft
+                  - entity: sensor.wlanthermo_channel_2_timeleft
                     name: Channel 2 Timer
-                  - type: entity
-                    entity: sensor.wlanthermo_channel_3_timeleft
+                  - entity: sensor.wlanthermo_channel_3_timeleft
                     name: Channel 3 Timer
-                  - type: entity
-                    entity: sensor.wlanthermo_channel_4_timeleft
+                  - entity: sensor.wlanthermo_channel_4_timeleft
                     name: Channel 4 Timer
-                  - type: entity
-                    entity: sensor.wlanthermo_channel_5_timeleft
+                  - entity: sensor.wlanthermo_channel_5_timeleft
                     name: Channel 5 Timer
-                  - type: entity
-                    entity: sensor.wlanthermo_channel_6_timeleft
+                  - entity: sensor.wlanthermo_channel_6_timeleft
                     name: Channel 6 Timer
-                  - type: entity
-                    entity: sensor.wlanthermo_channel_7_timeleft
+                  - entity: sensor.wlanthermo_channel_7_timeleft
                     name: Channel 7 Timer
-                  - type: entity
-                    entity: sensor.wlanthermo_channel_8_timeleft
+                  - entity: sensor.wlanthermo_channel_8_timeleft
                     name: Channel 8 Timer
-                  - type: entity
-                    entity: sensor.wlanthermo_channel_9_timeleft
+                  - entity: sensor.wlanthermo_channel_9_timeleft
                     name: Channel 9 Timer
               - card:
                   type: custom:vertical-stack-in-card
