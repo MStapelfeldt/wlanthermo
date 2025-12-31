@@ -9,14 +9,14 @@ template:
         turn_on:
           service: mqtt.publish
           data:
-            topic: WLanThermo/${wlanthermo_model}/set/channels
+            topic: !secret wlanthermo_set_topic
             retain: true
             payload: >
               {"number":1,"alarm":{{ state_attr('sensor.wlanthermo_channel_1_all', 'alarm') + 1 }}}
         turn_off:
           service: mqtt.publish
           data:
-            topic: WLanThermo/${wlanthermo_model}/set/channels
+            topic: !secret wlanthermo_set_topic
             retain: true
             payload: >
               {"number":1,"alarm":{{ state_attr('sensor.wlanthermo_channel_1_all', 'alarm') - 1 }}}
@@ -36,14 +36,14 @@ template:
         turn_on:
           service: mqtt.publish
           data:
-            topic: WLanThermo/${wlanthermo_model}/set/channels
+            topic: !secret wlanthermo_set_topic
             retain: true
             payload: >
               {"number":2,"alarm":{{ state_attr('sensor.wlanthermo_channel_2_all', 'alarm') + 1 }}}
         turn_off:
           service: mqtt.publish
           data:
-            topic: WLanThermo/${wlanthermo_model}/set/channels
+            topic: !secret wlanthermo_set_topic
             retain: true
             payload: >
               {"number":2,"alarm":{{ state_attr('sensor.wlanthermo_channel_2_all', 'alarm') - 1 }}}
@@ -63,14 +63,14 @@ template:
         turn_on:
           service: mqtt.publish
           data:
-            topic: WLanThermo/${wlanthermo_model}/set/channels
+            topic: !secret wlanthermo_set_topic
             retain: true
             payload: >
               {"number":3,"alarm":{{ state_attr('sensor.wlanthermo_channel_3_all', 'alarm') + 1 }}}
         turn_off:
           service: mqtt.publish
           data:
-            topic: WLanThermo/${wlanthermo_model}/set/channels
+            topic: !secret wlanthermo_set_topic
             retain: true
             payload: >
               {"number":3,"alarm":{{ state_attr('sensor.wlanthermo_channel_3_all', 'alarm') - 1 }}}
@@ -90,14 +90,14 @@ template:
         turn_on:
           service: mqtt.publish
           data:
-            topic: WLanThermo/${wlanthermo_model}/set/channels
+            topic: !secret wlanthermo_set_topic
             retain: true
             payload: >
               {"number":4,"alarm":{{ state_attr('sensor.wlanthermo_channel_4_all', 'alarm') + 1 }}}
         turn_off:
           service: mqtt.publish
           data:
-            topic: WLanThermo/${wlanthermo_model}/set/channels
+            topic: !secret wlanthermo_set_topic
             retain: true
             payload: >
               {"number":4,"alarm":{{ state_attr('sensor.wlanthermo_channel_4_all', 'alarm') - 1 }}}
@@ -117,14 +117,14 @@ template:
         turn_on:
           service: mqtt.publish
           data:
-            topic: WLanThermo/${wlanthermo_model}/set/channels
+            topic: !secret wlanthermo_set_topic
             retain: true
             payload: >
               {"number":5,"alarm":{{ state_attr('sensor.wlanthermo_channel_5_all', 'alarm') + 1 }}}
         turn_off:
           service: mqtt.publish
           data:
-            topic: WLanThermo/${wlanthermo_model}/set/channels
+            topic: !secret wlanthermo_set_topic
             retain: true
             payload: >
               {"number":5,"alarm":{{ state_attr('sensor.wlanthermo_channel_5_all', 'alarm') - 1 }}}
@@ -144,14 +144,14 @@ template:
         turn_on:
           service: mqtt.publish
           data:
-            topic: WLanThermo/${wlanthermo_model}/set/channels
+            topic: !secret wlanthermo_set_topic
             retain: true
             payload: >
               {"number":6,"alarm":{{ state_attr('sensor.wlanthermo_channel_6_all', 'alarm') + 1 }}}
         turn_off:
           service: mqtt.publish
           data:
-            topic: WLanThermo/${wlanthermo_model}/set/channels
+            topic: !secret wlanthermo_set_topic
             retain: true
             payload: >
               {"number":6,"alarm":{{ state_attr('sensor.wlanthermo_channel_6_all', 'alarm') - 1 }}}
@@ -171,14 +171,14 @@ template:
         turn_on:
           service: mqtt.publish
           data:
-            topic: WLanThermo/${wlanthermo_model}/set/channels
+            topic: !secret wlanthermo_set_topic
             retain: true
             payload: >
               {"number":7,"alarm":{{ state_attr('sensor.wlanthermo_channel_7_all', 'alarm') + 1 }}}
         turn_off:
           service: mqtt.publish
           data:
-            topic: WLanThermo/${wlanthermo_model}/set/channels
+            topic: !secret wlanthermo_set_topic
             retain: true
             payload: >
               {"number":7,"alarm":{{ state_attr('sensor.wlanthermo_channel_7_all', 'alarm') - 1 }}}
@@ -198,14 +198,14 @@ template:
         turn_on:
           service: mqtt.publish
           data:
-            topic: WLanThermo/${wlanthermo_model}/set/channels
+            topic: !secret wlanthermo_set_topic
             retain: true
             payload: >
               {"number":8,"alarm":{{ state_attr('sensor.wlanthermo_channel_8_all', 'alarm') + 1 }}}
         turn_off:
           service: mqtt.publish
           data:
-            topic: WLanThermo/${wlanthermo_model}/set/channels
+            topic: !secret wlanthermo_set_topic
             retain: true
             payload: >
               {"number":8,"alarm":{{ state_attr('sensor.wlanthermo_channel_8_all', 'alarm') - 1 }}}
@@ -225,14 +225,14 @@ template:
         turn_on:
           service: mqtt.publish
           data:
-            topic: WLanThermo/${wlanthermo_model}/set/channels
+            topic: !secret wlanthermo_set_topic
             retain: true
             payload: >
               {"number":9,"alarm":{{ state_attr('sensor.wlanthermo_channel_9_all', 'alarm') + 1 }}}
         turn_off:
           service: mqtt.publish
           data:
-            topic: WLanThermo/${wlanthermo_model}/set/channels
+            topic: !secret wlanthermo_set_topic
             retain: true
             payload: >
               {"number":9,"alarm":{{ state_attr('sensor.wlanthermo_channel_9_all', 'alarm') - 1 }}}

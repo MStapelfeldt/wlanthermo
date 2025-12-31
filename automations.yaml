@@ -52,7 +52,7 @@ automation:
     condition: []
     action:
     - data:
-        topic: WLanThermo/${wlanthermo_model}/set/channels
+        topic: !secret wlanthermo_set_topic
         retain: true
         payload: '{% set num = trigger.entity_id.split(''_'')[3] %} {"number": {{ num
           }}, "min": "{{ states(trigger.entity_id) }}"}
@@ -77,7 +77,7 @@ automation:
     condition: []
     action:
     - data:
-        topic: WLanThermo/${wlanthermo_model}/set/channels
+        topic: !secret wlanthermo_set_topic
         retain: true
         payload: '{% set num = trigger.entity_id.split(''_'')[3] %} {"number": {{ num
           }}, "max": "{{ states(trigger.entity_id) }}"}
@@ -101,7 +101,7 @@ automation:
     condition: []
     action:
     - data:
-        topic: WLanThermo/${wlanthermo_model}/set/channels
+        topic: !secret wlanthermo_set_topic
         retain: true
         payload: '{% set num = trigger.entity_id.split(''_'')[3] %} {"number": {{ num
           }}, "name": "{{ states(trigger.entity_id) }}"}

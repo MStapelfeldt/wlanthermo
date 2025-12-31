@@ -2,9 +2,9 @@ mqtt:
   sensor:
     - name: "BBQ Thermo"
       # change topic to your modelname!
-      state_topic: "WLanThermo/${wlanthermo_model}/status/data"
+      state_topic: !secret wlanthermo_data_topic
       value_template: "{{ value_json.system.online }}"
-      json_attributes_topic: "WLanThermo/${wlanthermo_model}/status/data"
+      json_attributes_topic: !secret wlanthermo_data_topic
       json_attributes_template: "{{ value_json | tojson }}"
       enabled_by_default: true
 
