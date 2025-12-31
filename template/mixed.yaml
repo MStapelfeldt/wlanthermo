@@ -12,6 +12,18 @@ template:
           {% endif %}
 
   - sensor:
+    - name: wlanthermo_soc
+      unique_id: wlanthermo_soc
+      unit_of_measurement: "%"
+      icon: mdi:battery
+      availability: >
+        {{ not is_state('sensor.bbq_thermo', 'unavailable') and not is_state('sensor.bbq_thermo', 'unknown') }}
+      state: >
+        {% if not is_state('sensor.bbq_thermo', 'unavailable') and not is_state('sensor.bbq_thermo', 'unknown') %}
+          {{ state_attr('sensor.bbq_thermo', 'system').soc | int(0) }}
+        {% else %}
+          0
+        {% endif %}
     - name: wlanthermo_pitmaster_1_change
       unit_of_measurement: °C
       default_entity_id: sensor.wlanthermo_pitmaster_1_change
@@ -29,6 +41,17 @@ template:
       availability: >
         {{ not is_state('sensor.bbq_thermo', 'unavailable') and (not is_state('sensor.bbq_thermo', 'unknown')) }}
       state: "{{ ((as_timestamp(now()) - (state_attr('input_datetime.wlanthermo_became_available','timestamp') | float(0))) / 60) | int }}"
+
+    - name: wlanthermo_online_since_hm
+      unique_id: wlanthermo_online_since_hm
+      icon: mdi:clock
+      availability: >
+        {{ not is_state('sensor.bbq_thermo', 'unavailable') and (not is_state('sensor.bbq_thermo', 'unknown')) }}
+      state: >
+        {% set minutes = ((as_timestamp(now()) - (state_attr('input_datetime.wlanthermo_became_available','timestamp') | float(0))) / 60) | int %}
+        {% set hours = (minutes // 60) %}
+        {% set mins = (minutes % 60) %}
+        {{ '%02d' % hours }}:{{ '%02d' % mins }}
 
     - name: wlanthermo_channel_1_color
       unique_id: wlanthermo_channel_1_color

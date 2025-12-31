@@ -138,16 +138,19 @@ automation:
     description: ''
     mode: queued
     trigger:
-    - platform: state
-      entity_id: sensor.bbq_thermo
-      from: unavailable
+      - platform: state
+        entity_id: sensor.bbq_thermo
+        from: unavailable
+      - platform: state
+        entity_id: sensor.bbq_thermo
+        from: unknown
     condition: []
     action:
-    - service: input_datetime.set_datetime
-      data:
-        timestamp: '{{ now().timestamp() }}'
-      target:
-        entity_id: input_datetime.wlanthermo_became_available
+      - service: input_datetime.set_datetime
+        data:
+          timestamp: '{{ now().timestamp() }}'
+        target:
+          entity_id: input_datetime.wlanthermo_became_available
   - id: 1643554744561_timer
     alias: WLANThermo Channel Timer
     trigger:
