@@ -12,8 +12,8 @@ template:
           {% endif %}
 
   - sensor:
-    - name: wlanthermo_soc
-      unique_id: wlanthermo_soc
+    - name: wlanthermo_akku_soc
+      unique_id: wlanthermo_akku_soc
       unit_of_measurement: "%"
       icon: mdi:battery
       availability: >
