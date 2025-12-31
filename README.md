@@ -33,7 +33,15 @@ Create the following folders and upload the files as organized in this repositor
 /homeassistant/packages/wlanthermo/template/
 ```
 
-Within the `wlanthermo` folder, there is a `secrets.yaml` file containing the model number. Change this to match your WlanThermo settings.
+Within the `wlanthermo` folder, there is a `secrets.yaml` file containing the MQTT topic settings used for communication with your WlanThermo device. Update these topics if your device uses different MQTT topics or a different device name. The default topics are:
+
+```yaml
+wlanthermo_data_topic: WLanThermo/MINI-V3/status/data
+wlanthermo_settings_topic: WLanThermo/MINI-V3/status/settings
+wlanthermo_set_topic: WLanThermo/MINI-V3/set/channels
+```
+
+Adjust these values to match your WlanThermo's MQTT configuration if necessary. Then copy these secrets to your Home Assistant secrets file at `/homeassistant/secrets.yaml`
 
 ### 3. Additional Plugins for Dashboard
 To use the provided dashboard layout (see `bbq.yaml`), install these custom components via HACS:
@@ -68,7 +76,5 @@ After adding all files, updating `configuration.yaml`, setting up MQTT, and inst
 ![Dashboard](https://raw.githubusercontent.com/MStapelfeldt/wlanthermo/main/WT%20Dashboard.PNG "Dashboard")
 
 - **Top row:** Temperatures of all 8 channels. Click a channel for a detailed view (third row).
-- **Second row:** Timer (left) shows estimated BBQ readiness. Pitmaster1 settings (right) allow you to set temperature, mode, and profile. Channel is recommended to stay at 9.
+- **Second row:** Timer (left) shows estimated BBQ readiness. Pitmaster1 settings (right) allow you to set temperature, mode, and profile. It is recommended to keep the channel set to 9.
 - **Third row:** Left shows the selected channel (from top row). Adjust temperature and alarms for each channel or Pitmaster 2. Right shows a graph of all temperature history.
-
-*Note: The graph may be improved in the future (e.g., hiding unused channels).*
