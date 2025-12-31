@@ -494,6 +494,8 @@ views:
                       yaxis_id: '0'
                       stroke_width: 3
                       color: ${states['sensor.wlanthermo_channel_1_color'].state}
+                      show:
+                        in_chart: "${Number(states['sensor.wlanthermo_channel_1_all'].state) !== 0}"
                     - entity: sensor.wlanthermo_channel_2_all
                       name: Kanal 2
                       statistics:
@@ -502,6 +504,8 @@ views:
                       yaxis_id: '0'
                       stroke_width: 3
                       color: ${states['sensor.wlanthermo_channel_2_color'].state}
+                      show:
+                        in_chart: "${Number(states['sensor.wlanthermo_channel_2_all'].state) !== 0}"
                     - entity: sensor.wlanthermo_channel_3_all
                       name: Kanal 3
                       statistics:
@@ -510,6 +514,8 @@ views:
                       yaxis_id: '0'
                       stroke_width: 3
                       color: ${states['sensor.wlanthermo_channel_3_color'].state}
+                      show:
+                        in_chart: "${Number(states['sensor.wlanthermo_channel_3_all'].state) !== 0}"
                     - entity: sensor.wlanthermo_channel_4_all
                       name: Kanal 4
                       statistics:
@@ -518,6 +524,8 @@ views:
                       yaxis_id: '0'
                       stroke_width: 3
                       color: ${states['sensor.wlanthermo_channel_4_color'].state}
+                      show:
+                        in_chart: "${Number(states['sensor.wlanthermo_channel_4_all'].state) !== 0}"
                     - entity: sensor.wlanthermo_channel_5_all
                       name: Kanal 5
                       statistics:
@@ -526,6 +534,8 @@ views:
                       yaxis_id: '0'
                       stroke_width: 3
                       color: ${states['sensor.wlanthermo_channel_5_color'].state}
+                      show:
+                        in_chart: "${Number(states['sensor.wlanthermo_channel_5_all'].state) !== 0}"
                     - entity: sensor.wlanthermo_channel_6_all
                       name: Kanal 6
                       statistics:
@@ -534,6 +544,8 @@ views:
                       yaxis_id: '0'
                       stroke_width: 3
                       color: ${states['sensor.wlanthermo_channel_6_color'].state}
+                      show:
+                        in_chart: "${Number(states['sensor.wlanthermo_channel_6_all'].state) !== 0}"
                     - name: Kanal 7
                       entity: sensor.wlanthermo_channel_7_all
                       statistics:
@@ -542,6 +554,8 @@ views:
                       yaxis_id: '0'
                       stroke_width: 3
                       color: ${states['sensor.wlanthermo_channel_7_color'].state}
+                      show:
+                        in_chart: "${Number(states['sensor.wlanthermo_channel_7_all'].state) !== 0}"
                     - entity: sensor.wlanthermo_channel_8_all
                       name: Kanal 8
                       statistics:
@@ -550,6 +564,8 @@ views:
                       yaxis_id: '0'
                       stroke_width: 3
                       color: ${states['sensor.wlanthermo_channel_8_color'].state}
+                      show:
+                        in_chart: "${Number(states['sensor.wlanthermo_channel_8_all'].state) !== 0}"
                     - entity: sensor.wlanthermo_channel_9_all
                       name: Kanal 9
                       statistics:
@@ -558,6 +574,8 @@ views:
                       yaxis_id: '0'
                       stroke_width: 3
                       color: ${states['sensor.wlanthermo_channel_9_color'].state}
+                      show:
+                        in_chart: "${Number(states['sensor.wlanthermo_channel_9_all'].state) !== 0}"
                     - entity: sensor.wlanthermo_pitmaster_1_temp
                       name: Pit 1
                       yaxis_id: '0'
